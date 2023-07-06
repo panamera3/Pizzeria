@@ -9,19 +9,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <a href="/catalog">Каталог</a>
-          </li>
-          <li>
-            <a href="/cart">Корзина</a>
-          </li>
-          <li>
-            <a href="/cart">Личный кабинет</a>
-          </li>
-        </ul>
-      </nav>
+      <div
+        className="navigation"
+        style={{ display: "flex", flexDirection: "row" }}
+      >
+        <p>Ближайшие филиалы: {"Мира 32"}</p>
+        <a href="/catalog">Каталог</a>
+        <a href="/cart">Корзина</a>
+        <a href="/cart">Личный кабинет</a>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="catalog" element={<Catalog />} />
@@ -31,6 +27,11 @@ const App = () => {
           <Route path="product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
+      <div className="footer" style={{ display: "flex", flexDirection: "row" }}>
+        <h2>рабочий телефон</h2>
+        <h2>рабочая эл. почта</h2>
+        <h2>количество пиццерий</h2>
+      </div>
     </>
   );
 };
