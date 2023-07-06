@@ -1,8 +1,8 @@
 const PersonalAccount = () => {
-    return (
-      <></>
-    );
-  };
-  
-  export default PersonalAccount;
-  
+  return (
+    <>
+    </>
+  );
+};
+
+export default PersonalAccount;
