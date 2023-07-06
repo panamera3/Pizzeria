@@ -1,8 +1,12 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import Pizza from '../types/Pizza.js'
 
 const Product = () => {
   const { id } = useParams();
-  console.log(id);
+  const [product, setProduct] = useState({});
+
+  console.log(product);
 
   return (
     <>
