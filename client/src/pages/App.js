@@ -12,10 +12,13 @@ const App = () => {
       <nav>
         <ul>
           <li>
+            <a href="/catalog">Каталог</a>
+          </li>
+          <li>
             <a href="/cart">Корзина</a>
           </li>
           <li>
-            <a href="/catalog">Каталог</a>
+            <a href="/cart">Личный кабинет</a>
           </li>
         </ul>
       </nav>
