@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+.login {
+    z-index: 100;
+    font-family: 'Montserrat';
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #FFFFFF;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    margin: 36px 56px;
+}
+
+.login__title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 37px;
+}
+
+.login-title__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__exit {
+    position: absolute;
+    cursor: pointer;
+    top: 45px;
+    right: 55px;
+}
+
+.login__label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #666666;
+}
+
+#tel__input {
+    margin-left: 12px;
+}
+
+#password__input {
+    margin-left: 23px;
+}
+
+.login__input {
+    width: 321px;
+    border: 1px solid #CCCCCC;
+    font-size: 13px;
+    font-family: 'Montserrat';
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.login__input:hover,
+.login__input:focus,
+.login__input:active {
+    border: 1px solid #FAD22C;
+}
+
+.login-input__wrapper {
+    margin-bottom: 15px;
+}
+
+.login__submit {
+    font-family: 'Open Sans' sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-size: 17px;
+    margin-top: 19px;
+    background-color: #D31C29;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login__submit:hover,
+.login__submit:focus {
+    background-color: #7F1119;
+}
+
+.login__submit:active {
+    background-color: #43080D;
+}
+
+.login__submit:disabled {
+    background-color: #666666;
+}
+
+.login__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 90px 104px 99px;
+
+}
+
+.login__button {
+    background-color: white;
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login__button:hover,
+.login__button:focus {
+    color: #D31C29;
+}
+
+.login__button:active {
+    color: #7F1119;
+}
+
+.login__link {
+    color: #D31C29;
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin: 0 36px 36px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login__link:hover,
+.login__link:focus,
+.login__link:active {
+    color: #7F1119;
+}
+
+
+
