@@ -18,6 +18,7 @@ import telegram from "../images/telegram.svg";
 import personalAccount from "../images/personalAccount.svg";
 import cart from "../images/cart.svg";
 import Background from "../images/background.jpg";
+import "typeface-montserrat";
 
 const App = () => {
   return (
@@ -25,17 +26,20 @@ const App = () => {
       <BrowserRouter>
         <div className="header">
           <img src={logoBlack} alt="Pepperoni Papa Pizza" />
-          <Navigation style={{ display: "flex", flexDirection: "row" }} />
-          <div className="personalNavigation">
-            <div className="personalAccount">
-              <img src={personalAccount} alt="" />
-              <a href="/personalAccount">Личный кабинет</a>
+          <div className="navigation">
+            <Navigation style={{ display: "flex", flexDirection: "row" }} />
+            <div className="vertical-line"></div>
+            <div className="personalNavigation">
+              <div className="personalAccount">
+                <img src={personalAccount} alt="" />
+                <a href="/personalAccount">Личный кабинет</a>
+              </div>
+              <a href="/cart">
+                <img src={cart} alt="Корзина" />
+              </a>
+              <img src={whatsapp} alt="WhatsApp" />
+              <img src={telegram} alt="Telegram" />
             </div>
-            <a href="/cart">
-              <img src={cart} alt="Корзина" />
-            </a>
-            <img src={whatsapp} alt="WhatsApp" />
-            <img src={telegram} alt="Telegram" />
           </div>
         </div>
         <div className="body">
@@ -45,7 +49,16 @@ const App = () => {
             <Route path="order" element={<Order />} />
             <Route path="personalAccount" element={<PersonalAccount />} />
             <Route path="product/:id" element={<Product />} />
-            <Route path="" element={<img src={Background} alt="" />} />
+            <Route
+              path=""
+              element={
+                <img
+                  src={Background}
+                  alt=""
+                  style={{ width: "100%", height: "100%" }}
+                />
+              }
+            />
           </Routes>
         </div>
         <div className="footer">
