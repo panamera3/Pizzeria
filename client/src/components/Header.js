@@ -7,6 +7,7 @@ import logoBlack from "../images/logo-black.svg";
 import whatsapp from "../images/whatsapp.svg";
 import telegram from "../images/telegram.svg";
 import personalAccount from "../images/personalAccount.svg";
+import personalAccountHover from "../images/personalAccountHover.svg";
 import cart from "../images/cart.svg";
 
 const Header = () => {
@@ -19,14 +20,26 @@ const Header = () => {
           <div className="vertical-line"></div>
           <div className="personalNavigation">
             <div className="personalAccount">
-              <img src={personalAccount} alt="" />
-              <a href="/personalAccount">Личный кабинет</a>
+              <a href="/personalAccount">
+                <img src={personalAccount} alt="" className="pa" />
+                <img src={personalAccountHover} alt="" className="paHover" />
+                Личный кабинет
+              </a>
             </div>
-            <a href="/cart">
-              <img src={cart} alt="Корзина" />
-            </a>
-            <img src={whatsapp} alt="WhatsApp" />
-            <img src={telegram} alt="Telegram" />
+            <div className="images">
+              <a href="/cart">
+                <img src={cart} alt="Корзина" />
+              </a>
+
+              <a href="/">
+                <img src={whatsapp} alt="WhatsApp" />
+                {/* ссылка на ватсап? */}
+              </a>
+
+              <a href="/">
+                <img src={telegram} alt="Telegram" /> {/* ссылка на телегу? */}
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -19,12 +19,12 @@
   color: #000000;
   text-decoration: none;
   margin: 10px 20px;
+  padding-bottom: 0.2em;
 }
 
 .header a:hover {
   color: #d31c29;
   border-bottom: 2px solid #d31c29;
-  padding-bottom: 0.2em;
 }
 
 .header a:focus {
@@ -48,12 +48,31 @@
   flex-direction: row;
 }
 
-.personalAccount {
+.personalAccount a {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+.paHover {
+  display: none;
+}
+
+.personalAccount a:hover .paHover {
+  display: block;
+}
+
+.personalAccount a:hover .pa {
+  display: none;
+}
+
 .personalAccount * {
   margin: 0 !important;
+}
+
+.images a:hover {
+  all: unset;
+  text-decoration: none;
+  margin: 10px 20px;
+  cursor: pointer;
 }

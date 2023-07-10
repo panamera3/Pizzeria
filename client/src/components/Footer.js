@@ -12,16 +12,26 @@ const Footer = () => {
     <>
       <div className="footer">
         <div className="left">
-          <img src={logoWhite} alt="Pepperoni Papa Pizza" className="logo"/>
-          <Navigation style={{ display: "flex", flexDirection: "column", justifyContent: "center" }} />
+          <img src={logoWhite} alt="Pepperoni Papa Pizza" className="logo" />
+          <Navigation
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          />
         </div>
 
         <div className="phone">
           <p>Заказать еду можно по телефону</p>
           <h2>222-22-22</h2>
           <div className="messengers">
-            <img src={whatsapp} alt="WhatsApp" />
-            <img src={telegram} alt="Telegram" />
+            <a href="/">
+              <img src={whatsapp} alt="WhatsApp" />
+            </a>
+            <a href="/">
+              <img src={telegram} alt="Telegram" />
+            </a>
           </div>
         </div>
       </div>

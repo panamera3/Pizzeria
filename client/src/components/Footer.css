@@ -35,10 +35,15 @@
 }
 
 .phone * {
-  margin: 0.5em;
+  margin: 0.4em;
 }
 
 .messengers {
   display: flex;
   flex-direction: row;
+}
+
+.messengers a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
