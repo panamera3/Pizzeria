@@ -3,20 +3,39 @@
   color: #ffffff;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 0 1em;
 }
 
 .footer a {
   color: #ffffff;
   text-decoration: none;
+  margin: 0.6em 0;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
 
+.logo {
+  padding: 0 5em;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+}
+
 .phone {
   display: flex;
   flex-direction: column;
+  align-items: end;
+}
+
+.phone * {
+  margin: 0.5em;
 }
 
 .messengers {

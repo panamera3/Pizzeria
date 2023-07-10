@@ -11,10 +11,13 @@ const Footer = () => {
   return (
     <>
       <div className="footer">
-        <img src={logoWhite} alt="Pepperoni Papa Pizza" />
-        <Navigation style={{ display: "flex", flexDirection: "column" }} />
+        <div className="left">
+          <img src={logoWhite} alt="Pepperoni Papa Pizza" className="logo"/>
+          <Navigation style={{ display: "flex", flexDirection: "column", justifyContent: "center" }} />
+        </div>
+
         <div className="phone">
-          <h3>Заказать еду можно по телефону</h3>
+          <p>Заказать еду можно по телефону</p>
           <h2>222-22-22</h2>
           <div className="messengers">
             <img src={whatsapp} alt="WhatsApp" />
