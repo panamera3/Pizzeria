@@ -22,6 +22,18 @@
     margin-bottom: 37px;
 }
 
+.login-title__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__exit {
+    position: absolute;
+    cursor: pointer;
+    top: 45px;
+    right: 55px;
+}
+
 .login__label {
     font-size: 17px;
     font-weight: 600;

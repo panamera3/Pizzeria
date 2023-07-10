@@ -1,10 +1,14 @@
 import "./Login.css";
+import Exit from "./Exit.svg";
 
 const Login = () => {
     return (
         <div className="login">
             <form className="login__form" method="post">
-                <h2 className="login__title">Вход</h2>
+                <div className="login-title__wrapper">
+                    <h2 className="login__title">Вход</h2>
+                    <img className="login__exit" src={Exit} alt="Кнопка выхода"/>
+                </div>
                 <div className="login-input__wrapper">
                     <label className="login__label" for="tel__input">Телефон:</label>
                     <input className="login__input" id="tel__input" type="tel" placeholder="+7 999 999 99 99"/>
