@@ -8,42 +8,22 @@ import Cart from "./Cart";
 import Order from "./Order";
 import PersonalAccount from "./PersonalAccount";
 import Product from "./Product";
+import Login from "./Login/Login";
 // components
-import Navigation from "../components/Navigation";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 // images
-import logoBlack from "../images/logo-black.svg";
-import logoWhite from "../images/logo-white.svg";
-import whatsapp from "../images/whatsapp.svg";
-import telegram from "../images/telegram.svg";
-import personalAccount from "../images/personalAccount.svg";
-import cart from "../images/cart.svg";
 import Background from "../images/background.jpg";
 import "typeface-montserrat";
 
 const App = () => {
   return (
     <>
+      <Header />
       <BrowserRouter>
-        <div className="header">
-          <img src={logoBlack} alt="Pepperoni Papa Pizza" />
-          <div className="navigation">
-            <Navigation style={{ display: "flex", flexDirection: "row" }} />
-            <div className="vertical-line"></div>
-            <div className="personalNavigation">
-              <div className="personalAccount">
-                <img src={personalAccount} alt="" />
-                <a href="/personalAccount">Личный кабинет</a>
-              </div>
-              <a href="/cart">
-                <img src={cart} alt="Корзина" />
-              </a>
-              <img src={whatsapp} alt="WhatsApp" />
-              <img src={telegram} alt="Telegram" />
-            </div>
-          </div>
-        </div>
         <div className="body">
           <Routes>
+            <Route path="login" element={<Login />} />
             <Route path="catalog" element={<Catalog />} />
             <Route path="cart" element={<Cart />} />
             <Route path="order" element={<Order />} />
@@ -61,18 +41,7 @@ const App = () => {
             />
           </Routes>
         </div>
-        <div className="footer">
-          <img src={logoWhite} alt="Pepperoni Papa Pizza" />
-          <Navigation style={{ display: "flex", flexDirection: "column" }} />
-          <div className="phone">
-            <h3>Заказать еду можно по телефону</h3>
-            <h2>222-22-22</h2>
-            <div className="messengers">
-              <img src={whatsapp} alt="WhatsApp" />
-              <img src={telegram} alt="Telegram" />
-            </div>
-          </div>
-        </div>
+        <Footer />
       </BrowserRouter>
     </>
   );
