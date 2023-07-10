@@ -18,6 +18,7 @@ const App = () => {
         <a href="/cart">Корзина</a>
         <a href="/cart">Личный кабинет</a>
       </div>
+      <div className="body">
       <BrowserRouter>
         <Routes>
           <Route path="catalog" element={<Catalog />} />
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
+      </div>
       <div className="footer" style={{ display: "flex", flexDirection: "row" }}>
         <h2>рабочий телефон</h2>
         <h2>рабочая эл. почта</h2>
