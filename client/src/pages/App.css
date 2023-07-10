@@ -1,8 +1,22 @@
 .header {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   display: flex;
   flex-direction: row;
+}
 
+.header a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.header a:hover {
+  color: #d31c29;
+  text-decoration: underline;
+}
+
+.header a:focus {
+  color: #d31c29;
+  text-decoration: underline;
 }
 
 .personalNavigation {
@@ -10,11 +24,26 @@
   flex-direction: row;
 }
 
+.body{
+  width: 100%;
+}
+
 .footer {
   background-color: #222222;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
 }
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
 
 .phone {
   display: flex;

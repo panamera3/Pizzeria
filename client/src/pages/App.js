@@ -17,6 +17,7 @@ import whatsapp from "../images/whatsapp.svg";
 import telegram from "../images/telegram.svg";
 import personalAccount from "../images/personalAccount.svg";
 import cart from "../images/cart.svg";
+import Background from "../images/background.jpg";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="order" element={<Order />} />
             <Route path="personalAccount" element={<PersonalAccount />} />
             <Route path="product/:id" element={<Product />} />
+            <Route path="" element={<img src={Background} alt="" />} />
           </Routes>
         </div>
         <div className="footer">
