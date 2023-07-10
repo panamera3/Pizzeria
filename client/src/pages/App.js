@@ -1,15 +1,22 @@
+// libraries
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// styles
 import "./App.css";
+// pages
 import Catalog from "./Catalog";
 import Cart from "./Cart";
 import Order from "./Order";
 import PersonalAccount from "./PersonalAccount";
 import Product from "./Product";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// components
+import Navigation from "../components/Navigation";
+// images
 import logoBlack from "../images/logo-black.svg";
 import logoWhite from "../images/logo-white.svg";
 import whatsapp from "../images/whatsapp.svg";
 import telegram from "../images/telegram.svg";
 import personalAccount from "../images/personalAccount.svg";
+import cart from "../images/cart.svg";
 
 const App = () => {
   return (
@@ -23,30 +30,35 @@ const App = () => {
           <Route path="product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
-      <div className="header" style={{ display: "flex", flexDirection: "row" }}>
-        <div className="nagivation">
-          <img src={logoBlack} alt="Pepperoni Papa Pizza" />
-          <a href="/">Главная</a>
-          <a href="/catalog">Меню</a>
-          <a href="/">О нас</a> {/* добавить ссылку*/}
-          <a href="/">Рестораны</a> {/* добавить ссылку*/}
-        </div>
+      <div className="header">
+        <img src={logoBlack} alt="Pepperoni Papa Pizza" />
+        <Navigation style={{ display: "flex", flexDirection: "row" }} />
         <div className="personalNavigation">
           <div className="personalAccount">
             <img src={personalAccount} alt="" />
             <a href="/personalAccount">Личный кабинет</a>
           </div>
-          <a href="/cart">Корзина</a>
+          <a href="/cart">
+            <img src={cart} alt="Корзина" />
+          </a>
           <img src={whatsapp} alt="WhatsApp" />
           <img src={telegram} alt="Telegram" />
         </div>
       </div>
-      <div className="body"></div>
-      <div className="footer" style={{ display: "flex", flexDirection: "row" }}>
+      <div className="body">
+        
+      </div>
+      <div className="footer">
         <img src={logoWhite} alt="Pepperoni Papa Pizza" />
-        <h2>рабочий телефон</h2>
-        <h2>рабочая эл. почта</h2>
-        <h2>количество пиццерий</h2>
+        <Navigation style={{ display: "flex", flexDirection: "column" }} />
+        <div className="phone">
+          <h3>Заказать еду можно по телефону</h3>
+          <h2>222-22-22</h2>
+          <div className="messengers">
+            <img src={whatsapp} alt="WhatsApp" />
+            <img src={telegram} alt="Telegram" />
+          </div>
+        </div>
       </div>
     </>
   );
