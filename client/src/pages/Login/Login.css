@@ -65,6 +65,9 @@
 
 .login-input__wrapper {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login__submit {

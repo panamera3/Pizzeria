@@ -67,7 +67,8 @@ const Login = () => {
 
   return (
     <Background>
-      <div style={{ height: "40em" }} /> {/* чтобы корректно отображался фоновый рисунок */}
+      <div style={{ height: "40em" }} />{" "}
+      {/* чтобы корректно отображался фоновый рисунок */}
       <Modal
         isOpen={true}
         onClose={onCloseLogin}
