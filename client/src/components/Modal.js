@@ -5,14 +5,14 @@ import Exit from "../images/Exit.svg";
 // styles
 import "./Modal.css";
 
-const Modal = ({ isOpen, onClose, children, width }) => {
+const Modal = ({ isOpen, onClose, children, width, stylePosition, height }) => {
   if (!isOpen) return null;
 
   return (
     <>
       <div className="modal-overlay">
-        <div className="modal">
-          <div className="modal-content" style={{ width: `${width}` }}>
+        <div className="modal" style={stylePosition}>
+          <div className="modal-content" style={{ width: `${width}`, height: `${height}` }}>
             <img
               className="modal-exit"
               src={Exit}

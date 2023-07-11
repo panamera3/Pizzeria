@@ -4,7 +4,7 @@ import { useLocalStorage } from "react-use";
 // styles
 import "./App.css";
 // pages
-import Cart from "./Cart";
+import Cart from "./Cart/Cart";
 import Order from "./Order";
 import Catalog from "./Catalog/Catalog";
 import PersonalAccount from "./PersonalAccount/PersonalAccount";

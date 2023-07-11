@@ -88,10 +88,14 @@ const Catalog = () => {
           isOpen={isModalOpen}
           onClose={closeModalCard}
           width="20em"
-          height="100%"
+          stylePosition={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-            <h2>{selectedProduct?.name}</h2>
-            <p>fighjk</p>
+          <h2>{selectedProduct?.name}</h2>
+          <p>fighjk</p>
         </Modal>
       )}
     </>
