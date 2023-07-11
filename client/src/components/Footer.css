@@ -9,7 +9,7 @@
   padding: 0 1em;
 }
 
-.footer a {
+.left a {
   color: #ffffff;
   text-decoration: none;
   margin: 0.6em 0;
@@ -32,15 +32,23 @@
   display: flex;
   flex-direction: column;
   align-items: end;
+  margin-right: 5em;
+  justify-content: center;
 }
 
-.phone * {
+.phone > * + * {
   margin: 0.4em;
 }
 
 .messengers {
   display: flex;
   flex-direction: row;
+}
+
+.messengers a {
+  color: #ffffff;
+  text-decoration: none;
+  margin:  0 0.5em;
 }
 
 .messengers a:hover {

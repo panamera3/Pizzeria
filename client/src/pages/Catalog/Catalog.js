@@ -51,7 +51,7 @@ const Catalog = () => {
 
   useEffect(() => {
     if (selectedProductAmount < 1) {
-      selectedProductAmount = 1;
+      setSelectedProductAmount(1);
     }
   }, [selectedProductAmount]);
 
