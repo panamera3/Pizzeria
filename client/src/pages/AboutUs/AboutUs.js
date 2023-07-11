@@ -6,7 +6,7 @@ import SecondBackground from "../../components/SecondBackground";
 const AboutUs = () => {
   return (
     <>
-    <SecondBackground />
+      <SecondBackground />
       <div className="about-us-container">
         <h2>Кто мы?</h2>
         <div className="point">
@@ -33,6 +33,21 @@ const AboutUs = () => {
             Мы стараемся работать быстро и внимательно, исполняем пожелания
             клиентов. Мы не позволим Вам страдать от голода. Приятного аппетита!
           </p>
+        </div>
+        <div className="contacts-container">
+          <h2>Контакты</h2>
+          <div className="point">
+            <p>
+              Если у вас возникнут вопросы или пожелания, вы можете связаться с
+              нами любым удобным способом:
+              <br />
+              Телефон: <br />
+              <b>8 (800)555-35-35 </b>
+              <br />
+              Email:
+              <br /> <b>cocojambo@gmail.com</b>
+            </p>
+          </div>
         </div>
       </div>
     </>
