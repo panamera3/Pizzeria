@@ -11,6 +11,17 @@
 
 .modal {
   height: 100%;
+  animation-name: modalAppear;
+  animation-duration: 0.5s;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
