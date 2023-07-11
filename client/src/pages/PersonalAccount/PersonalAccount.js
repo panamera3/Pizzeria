@@ -3,17 +3,18 @@ import { useEffect } from "react";
 import SecondBackground from "../../components/SecondBackground";
 // libraries
 import { useLocalStorage } from "react-use";
-//import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PersonalAccount = () => {
-  //const history = useHistory();
+  const navigate = useNavigate();
+
   const [user, setUser] = useLocalStorage("user");
 
   useEffect(() => {
     console.log(user);
     // если пользователь не входил ранее, перенаправлять его на страницу входа
-    if (!user) {
-      //history.push("/login"); 
+    if (!user.id) {
+      navigate("/login");
     }
   }, []);
 

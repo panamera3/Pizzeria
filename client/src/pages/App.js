@@ -1,5 +1,5 @@
 // libraries
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useLocalStorage } from "react-use";
 // styles
 import "./App.css";
@@ -19,7 +19,7 @@ import Footer from "../components/Footer";
 import "typeface-montserrat";
 
 const App = () => {
-  const [user, setUser] = useLocalStorage("user", {});
+  const [user, setUser] = useLocalStorage("user");
 
   return (
     <>
@@ -35,6 +35,8 @@ const App = () => {
             <Route path="personal-account" element={<PersonalAccount />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="restaurants" element={<Restaurants />} />
+            {/* перенаправлять пользователя на главную страницу, если ввёл несуществующий путь */}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
         <Footer />

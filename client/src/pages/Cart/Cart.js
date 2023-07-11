@@ -1,5 +1,6 @@
 // libraries
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // components
 import Background from "../../components/Background";
 import Modal from "../../components/Modal";
@@ -7,6 +8,8 @@ import Modal from "../../components/Modal";
 import "./Cart.css";
 
 const Cart = () => {
+  const navigate = useNavigate();
+  
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,10 +28,11 @@ const Cart = () => {
   }, []);
 
   const onCloseCart = () => {
-    /*перенаправлять на главную страницу*/
+    navigate("/");
   };
 
-  const applyPromocode = () => {};
+  const applyPromocode = () => {
+  };
 
   const decreaseAmount = (product) => {
     // менять кол-во внутри списка products
@@ -41,6 +45,7 @@ const Cart = () => {
   return (
     <>
       <Background>
+        <div style={{ height: "36em" }} />
         <Modal
           isOpen={true}
           onClose={onCloseCart}
@@ -49,7 +54,7 @@ const Cart = () => {
           stylePosition={{ right: "0", position: "absolute" }}
         >
           <div className="cart-container">
-            <h2 style={{fontSize: "30px"}}>Ваши товары</h2>
+            <h2 style={{ fontSize: "30px" }}>Ваши товары</h2>
             <p className="cart-amount-order">
               Количество позиций в заказе: {products.length}
             </p>{" "}
