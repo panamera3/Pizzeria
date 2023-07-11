@@ -56,7 +56,7 @@ const Catalog = () => {
                 margin: "0 1em",
               }}
             >
-              <img src={pizza.image} />
+              <img src={pizza.image} alt="Пицца" />
               <h3>{pizza.name}</h3>
               <p>{pizza.structure}</p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -84,9 +84,14 @@ const Catalog = () => {
         </div>
       </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModalCard} width="40em" height="20em">
-          <h2>{selectedProduct.name}</h2>
-          <p>fighjk</p>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModalCard}
+          width="20em"
+          height="100%"
+        >
+            <h2>{selectedProduct?.name}</h2>
+            <p>fighjk</p>
         </Modal>
       )}
     </>
