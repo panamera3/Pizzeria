@@ -10,7 +10,7 @@ const Catalog = () => {
   const [products, setProducts] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedProductAmount, setSelectedProductAmount] = useState(0);
+  const [selectedProductAmount, setSelectedProductAmount] = useState(1);
 
   useEffect(() => {
     setProducts([
@@ -48,6 +48,12 @@ const Catalog = () => {
       },
     ]);
   }, []);
+
+  useEffect(() => {
+    if (selectedProductAmount < 1) {
+      selectedProductAmount = 1;
+    }
+  }, [selectedProductAmount]);
 
   const openModalCard = (product) => {
     setSelectedProduct(product);
@@ -129,7 +135,10 @@ const Catalog = () => {
               alignItems: "center",
             }}
           >
-            <button className="catalog-button">Добавить в корзину за {selectedProduct.price * selectedProductAmount} рублей</button>
+            <button className="catalog-button">
+              Добавить в корзину за{" "}
+              {selectedProduct.price * selectedProductAmount} рублей
+            </button>
             <div>
               <button
                 //onClick={() => decreaseAmount(product)}

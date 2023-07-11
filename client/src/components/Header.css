@@ -13,6 +13,10 @@
   font-weight: 600;
   font-size: 18px;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header a {
