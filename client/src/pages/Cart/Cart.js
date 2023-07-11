@@ -12,7 +12,7 @@ const Cart = () => {
   useEffect(() => {
     // проверять, залогинен ли юзер
     const allProducts = [
-      { id: 1, name: "Пепперони", description: "exmaple" },
+      { id: 1, name: "Пепперони", description: "exmaple", amount: 2 },
       { id: 2, name: "Карбонара", description: "exmaple" },
       { id: 1, name: "Пепперони", description: "exmaple" },
       { id: 2, name: "Карбонара", description: "exmaple" },
@@ -30,6 +30,14 @@ const Cart = () => {
 
   const applyPromocode = () => {};
 
+  const decreaseAmount = (product) => {
+    // менять кол-во внутри списка products
+  };
+
+  const increaseAmount = (product) => {
+    // менять кол-во внутри списка products
+  };
+
   return (
     <>
       <Background>
@@ -37,19 +45,22 @@ const Cart = () => {
           isOpen={true}
           onClose={onCloseCart}
           width="30em"
-          height="100%"
+          height="60%"
           stylePosition={{ right: "0", position: "absolute" }}
         >
           <div className="cart-container">
-            <h2>Ваши товары</h2>
-            <p>Количество позиций в заказе: {products.length}</p>
+            <h2 style={{fontSize: "30px"}}>Ваши товары</h2>
+            <p className="cart-amount-order">
+              Количество позиций в заказе: {products.length}
+            </p>{" "}
+            {/* пересчитывать количесвто, исходя из количества одного продукта */}
             {products.map((product) => (
               <div className="cart-product-card">
                 <div className="cart-product-info">
                   <img
-                    src="https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg"
+                    src="https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg" // поменять на изображение пиццы
                     alt=""
-                    width="40%"
+                    width="30%"
                   />
                   <div className="cart-product-text">
                     <p>{product.name}</p>
@@ -60,7 +71,25 @@ const Cart = () => {
                 </div>
                 <div className="cart-horizontal-line" />
                 <div className="cart-product-price">
-                  <p>{product.price * product.count}</p>
+                  <p>{product.price * product.count} Р</p>
+
+                  <div>
+                    <button
+                      onClick={() => decreaseAmount(product)}
+                      className="cart-button-amount"
+                    >
+                      -
+                    </button>
+                    <span className="cart-product-amount">
+                      {product.amount}
+                    </span>
+                    <button
+                      onClick={() => increaseAmount(product)}
+                      className="cart-button-amount"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -96,7 +125,10 @@ const Cart = () => {
                 <p>{1} Р</p>
               </div>
             </div>
-            <button className="cart-button cart-element">
+            <button
+              className="cart-button cart-element"
+              style={{ width: "100%" }}
+            >
               Перейти к оформлению заказа
             </button>
           </div>
