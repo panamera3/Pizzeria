@@ -1,8 +1,19 @@
-.catalog-container{
-
+.catalog-container {
+  margin: 2em;
 }
 
-.catalog-pizzas{
-    display: flex;
-    
+.catalog-pizzas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.catalog-button {
+  background-color: #d31c29;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1em;
+  border: none;
+  border-radius: 1em;
+  font-weight: 600;
 }
