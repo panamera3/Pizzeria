@@ -1,7 +1,7 @@
 // components
-import Background from "../components/Background";
+import Background from "../../components/Background";
 // images
-import logoWhite from "../images/logo-white.svg";
+import logoWhite from "../../images/logo-white.svg";
 // styles
 import "./Main.css";
 

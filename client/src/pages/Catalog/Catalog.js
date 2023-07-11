@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 // styles
 import "./Catalog.css";
 // components
-import SecondBackground from "../components/SecondBackground";
-import Modal from "../components/Modal";
+import SecondBackground from "../../components/SecondBackground";
+import Modal from "../../components/Modal";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);

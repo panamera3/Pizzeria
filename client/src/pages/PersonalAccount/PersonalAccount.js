@@ -1,6 +1,6 @@
 // components
 import { useEffect } from "react";
-import SecondBackground from "../components/SecondBackground";
+import SecondBackground from "../../components/SecondBackground";
 // libraries
 import { useLocalStorage } from "react-use";
 //import { useHistory } from "react-router-dom";
