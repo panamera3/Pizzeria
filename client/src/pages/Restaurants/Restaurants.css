@@ -10,9 +10,13 @@
 }
 
 .restaurants-text-container {
-  width: 45%;
+  width: 40%;
   position: absolute;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
 }
 
 .restaurants-horizontal-line {

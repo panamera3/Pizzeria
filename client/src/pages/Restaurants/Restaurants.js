@@ -8,19 +8,21 @@ const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    const allRestaurants = ["г. Екб", "г. Москва"];
+    const allRestaurants = ["г. Екб", "г. Москва", "г. Санкт-Петербург"];
     setRestaurants(allRestaurants);
   }, []);
 
   return (
     <>
       <div className="restaurants-container">
-        <div className="restaurants-text-container">
+        <div className="restaurants-text-container" >
           <h2>Наши рестораны</h2>
           <div className="restaurants-horizontal-line" />
-          {restaurants.map((restaurant) => (
-            <p style={{ marginBottom: "1em" }}>{restaurant}</p>
-          ))}
+          <div>
+            {restaurants.map((restaurant) => (
+              <p style={{ marginBottom: "1em" }}>{restaurant}</p>
+            ))}
+          </div>
         </div>
       </div>
     </>
