@@ -41,7 +41,7 @@ const Login = () => {
   const passwordHandler = (e) => {
     setPassword(e.target.value);
     if (e.target.value.length < 4) {
-      setPasswordError("Пароль должен быть длиннее 4");
+      setPasswordError("Пароль должен быть длиннее 4 символов");
       if (!e.target.value) {
         setPasswordError("Пароль не может быть пустым");
       }
@@ -67,11 +67,12 @@ const Login = () => {
 
   return (
     <Background>
+      <div style={{ height: "40em" }} /> {/* чтобы корректно отображался фоновый рисунок */}
       <Modal
         isOpen={true}
         onClose={onCloseLogin}
         width="40em"
-        height="55%"
+        height="45%"
         stylePosition={{
           display: "flex",
           justifyContent: "center",
