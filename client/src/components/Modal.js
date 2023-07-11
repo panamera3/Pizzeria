@@ -3,11 +3,11 @@ import React from "react";
 // images
 import Exit from "../images/Exit.svg";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, width, height }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
+    <div className="modal" style={{ width: `${width}`, height: `${height}` }}>
       <div className="modal-content">
         <img
           className="modal-exit"

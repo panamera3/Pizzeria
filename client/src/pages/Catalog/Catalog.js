@@ -84,7 +84,7 @@ const Catalog = () => {
         </div>
       </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModalCard}>
+        <Modal isOpen={isModalOpen} onClose={closeModalCard} width="40em" height="20em">
           <h2>{selectedProduct.name}</h2>
           <p>fighjk</p>
         </Modal>
