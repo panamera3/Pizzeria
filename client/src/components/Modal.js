@@ -1,4 +1,7 @@
+// libraries
 import React from "react";
+// images
+import Exit from "../images/Exit.svg";
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -6,9 +9,12 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
+        <img
+          className="modal-exit"
+          src={Exit}
+          alt="Кнопка выхода"
+          onClick={onClose}
+        />
         {children}
       </div>
     </div>

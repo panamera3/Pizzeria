@@ -22,3 +22,10 @@
   right: 10px;
   cursor: pointer;
 }
+
+.modal-exit {
+  position: absolute;
+  cursor: pointer;
+  top: 45px;
+  right: 55px;
+}
