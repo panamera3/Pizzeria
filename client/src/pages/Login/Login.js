@@ -1,9 +1,15 @@
+// styles
 import "./Login.css";
+// components
 import Exit from "../../images/Exit.svg";
 import Background from "../../components/Background";
+// libraries
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../components/Modal";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
   const [telDirty, setTelDirty] = useState(false);
@@ -55,16 +61,26 @@ const Login = () => {
     }
   };
 
+  const onCloseLogin = () => {
+    navigate("/");
+  };
+
   return (
     <Background>
-      <div className="login">
+      <Modal
+        isOpen={true}
+        onClose={onCloseLogin}
+        width="40em"
+        height="55%"
+        stylePosition={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <form className="login__form" method="post">
           <div className="login-title__wrapper">
             <h2 className="login__title">Вход</h2>
-            {/* при нажатии на выход, перенаправляет на главную страницу */}
-            <a href="/">
-              <img className="login__exit" src={Exit} alt="Кнопка выхода" />
-            </a>
           </div>
           <div className="login-input__wrapper">
             <label className="login__label" for="tel__input">
@@ -117,7 +133,7 @@ const Login = () => {
         <a href="#" className="login__link">
           Политика обработки персональных данных
         </a>
-      </div>
+      </Modal>
     </Background>
   );
 };

@@ -2,7 +2,7 @@
   z-index: 100;
   font-family: "Montserrat", sans-serif;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
@@ -11,13 +11,15 @@
 .login__form {
   display: flex;
   flex-direction: column;
-  margin: 36px 56px;
+  margin-bottom: 36px;
 }
 
 .login__title {
+  width: 100%;
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 37px;
+  text-align: center;
 }
 
 .login-title__wrapper {
@@ -94,8 +96,8 @@
 
 .login__wrapper {
   display: flex;
-  justify-content: space-between;
-  margin: 0 90px 104px 99px;
+  justify-content: space-around;
+  margin-bottom: 90px;
 }
 
 .login__button {
@@ -122,9 +124,9 @@
   font-size: 20px;
   font-weight: 500;
   display: block;
-  margin: 0 36px 36px;
   cursor: pointer;
   transition: 0.5s;
+  text-align: center;
 }
 
 .login__link:hover,
