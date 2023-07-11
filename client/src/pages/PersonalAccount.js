@@ -11,8 +11,9 @@ const PersonalAccount = () => {
 
   useEffect(() => {
     console.log(user);
+    // если пользователь не входил ранее, перенаправлять его на страницу входа
     if (!user) {
-      //history.push("/login");
+      //history.push("/login"); 
     }
   }, []);
 

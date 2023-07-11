@@ -1,5 +1,5 @@
 import "./Login.css";
-import Exit from "./Exit.svg";
+import Exit from "../../images/Exit.svg";
 import Background from "../../components/Background";
 import { useState, useEffect } from "react";
 
