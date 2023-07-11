@@ -25,4 +25,5 @@
 
 .modal-exit {
   float: right;
+  cursor: pointer;
 }

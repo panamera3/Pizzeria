@@ -20,7 +20,7 @@ const Header = () => {
           <div className="vertical-line"></div>
           <div className="personalNavigation">
             <div className="personalAccount">
-              <a href="/personalAccount">
+              <a href="/personal-account">
                 <img src={personalAccount} alt="" className="pa" />
                 <img src={personalAccountHover} alt="" className="paHover" />
                 Личный кабинет
