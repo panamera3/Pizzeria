@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Pizzeria/static/css/main.0aeaea2a.css",
-    "main.js": "/Pizzeria/static/js/main.91cf1159.js",
+    "main.css": "/Pizzeria/static/css/main.44399bf8.css",
+    "main.js": "/Pizzeria/static/js/main.49a72a28.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Pizzeria/static/js/787.c4e7f8f9.chunk.js",
     "static/media/background.jpg": "/Pizzeria/static/media/background.016ddaeca8837192b640.jpg",
-    "static/media/restaurants-background.jpg": "/Pizzeria/static/media/restaurants-background.b35a689019e24944685b.jpg",
+    "static/media/restaurants-background.jpg": "/Pizzeria/static/media/restaurants-background.de1ab3de8a61a4f00337.jpg",
     "static/media/background2.jpg": "/Pizzeria/static/media/background2.c8cd7639bfc05b268bcd.jpg",
     "static/media/logo-black.svg": "/Pizzeria/static/media/logo-black.b154a9d9be962c69646d037459296de8.svg",
     "static/media/logo-white.svg": "/Pizzeria/static/media/logo-white.cd741a188041d0797a751751f3f12b04.svg",
@@ -51,12 +51,12 @@
     "static/media/cart.svg": "/Pizzeria/static/media/cart.173eb1bd49829233a4adfb14112641a8.svg",
     "index.html": "/Pizzeria/index.html",
     "static/media/Exit.svg": "/Pizzeria/static/media/Exit.84b07ea8e9063db05a179ca0c0a0e16e.svg",
-    "main.0aeaea2a.css.map": "/Pizzeria/static/css/main.0aeaea2a.css.map",
-    "main.91cf1159.js.map": "/Pizzeria/static/js/main.91cf1159.js.map",
+    "main.44399bf8.css.map": "/Pizzeria/static/css/main.44399bf8.css.map",
+    "main.49a72a28.js.map": "/Pizzeria/static/js/main.49a72a28.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Pizzeria/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0aeaea2a.css",
-    "static/js/main.91cf1159.js"
+    "static/css/main.44399bf8.css",
+    "static/js/main.49a72a28.js"
   ]
 }
