@@ -1,16 +1,21 @@
 // libraries
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "react-use";
 // components
 import Background from "../../components/Background";
 import Modal from "../../components/Modal";
 // styles
 import "./Cart.css";
+// images
+import logoWhite from "../../images/logo-white.svg";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useLocalStorage("user");
 
   const [products, setProducts] = useState([]);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     // проверять, залогинен ли юзер
@@ -41,9 +46,32 @@ const Cart = () => {
     // менять кол-во внутри списка products
   };
 
+  const makeOrder = () => {
+    console.log(user);
+    if (!user.id) {
+      setShowTooltip(true);
+      return;
+    }
+    console.log(3246789);
+    /* заносить данные о том, что есть в корзине, в локалстор */
+    /* перенаправлять на страницу оформления заказа */
+    navigate("/order");
+  };
+
   return (
     <>
       <Background>
+        <img
+          src={logoWhite}
+          width="40%"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -60%)",
+          }}
+          alt=""
+        />
         <div style={{ height: "36em" }} />
         <Modal
           isOpen={true}
@@ -135,12 +163,21 @@ const Cart = () => {
                 <p>{1} Р</p>
               </div>
             </div>
-            <button
-              className="cart-button cart-element"
-              style={{ width: "100%" }}
-            >
-              Перейти к оформлению заказа
-            </button>
+
+            <div>
+              {showTooltip && (
+                <div className="tooltip">
+                  Чтобы сделать заказ, войдите в личный кабинет пользователя
+                </div>
+              )}
+              <button
+                className="cart-button cart-element"
+                style={{ width: "100%" }}
+                onClick={makeOrder}
+              >
+                Перейти к оформлению заказа
+              </button>
+            </div>
           </div>
         </Modal>
       </Background>
