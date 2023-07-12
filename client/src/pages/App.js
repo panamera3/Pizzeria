@@ -20,6 +20,7 @@ import "typeface-montserrat";
 
 const App = () => {
   const [user, setUser] = useLocalStorage("user");
+  // чтобы хранить у каждого пользователя товары в корзине
   const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
   // чтобы передавать данные с корзины на страницу заказа 
   const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
@@ -27,7 +28,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <BrowserRouter basename="/Pizzeria">
+      <BrowserRouter>
         <div className="body">
           <Routes>
             <Route path="/" element={<Main />} />
