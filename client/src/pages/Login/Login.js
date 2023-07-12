@@ -86,7 +86,7 @@ const Login = () => {
           </div>
           <div className="login-input__wrapper">
             <label className="login__label" for="email__input">
-              Телефон:
+              Почта:
             </label>
             {emailDirty && emailError && (
               <div style={{ color: "red" }}>{emailError}</div>
