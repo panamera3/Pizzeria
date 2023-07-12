@@ -58,7 +58,7 @@ const Cart = () => {
   }, [productsPrice, deliveryPrice, discountPrice]);
 
   const onCloseCart = () => {
-    navigate("/");
+    navigate(`${process.env.PUBLIC_URL}/#/`);
   };
 
   const applyPromocode = () => {};
@@ -100,7 +100,7 @@ const Cart = () => {
     console.log(3246789);
     /* заносить данные о том, что есть в корзине, в локалстор */
     /* перенаправлять на страницу оформления заказа */
-    //navigate("/order");
+    //navigate(`${process.env.PUBLIC_URL}/#/order`);
   };
 
   return (
@@ -113,11 +113,11 @@ const Cart = () => {
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -60%)",
+            transform: "translate(-50%, -55%)",
           }}
           alt=""
         />
-        <div style={{ height: "36em" }} />
+        <div style={{ height: "38em" }} />
         <Modal
           isOpen={true}
           onClose={onCloseCart}

@@ -20,24 +20,23 @@ const Header = () => {
           <div className="vertical-line"></div>
           <div className="personalNavigation">
             <div className="personalAccount">
-              <a href="/personal-account">
+              <a href={`${process.env.PUBLIC_URL}/#/personal-account`}>
                 <img src={personalAccount} alt="" className="pa" />
                 <img src={personalAccountHover} alt="" className="paHover" />
                 Личный кабинет
               </a>
             </div>
             <div className="images">
-              <a href="/cart">
+              <a href={`${process.env.PUBLIC_URL}/#/cart`}>
                 <img src={cart} alt="Корзина" />
               </a>
 
               <a href="tel:2222222">
                 <img src={whatsapp} alt="WhatsApp" />
-                {/* ссылка на ватсап? */}
               </a>
 
               <a href="tel:2222222">
-                <img src={telegram} alt="Telegram" /> {/* ссылка на телегу? */}
+                <img src={telegram} alt="Telegram" />
               </a>
             </div>
           </div>

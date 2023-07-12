@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   const onCloseLogin = () => {
-    navigate("/");
+    navigate(`${process.env.PUBLIC_URL}/#/`);
   };
 
   return (
