@@ -4,18 +4,21 @@ import "./Restaurants.css";
 import { useEffect, useState } from "react";
 
 const Restaurants = () => {
-  // будет ли в бд список ресторанов?
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    const allRestaurants = ["г. Екб", "г. Москва", "г. Санкт-Петербург"];
+    const allRestaurants = [
+      "г. Екатеринбург, ул. Мира д. 32",
+      "г. Екатеринбург, ул. Мира д. 18",
+      "г. Екатеринбург, ул. Мира д. 16",
+    ];
     setRestaurants(allRestaurants);
   }, []);
 
   return (
     <>
       <div className="restaurants-container">
-        <div className="restaurants-text-container" >
+        <div className="restaurants-text-container">
           <h2>Наши рестораны</h2>
           <div className="restaurants-horizontal-line" />
           <div>

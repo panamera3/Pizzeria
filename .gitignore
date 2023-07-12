@@ -40,3 +40,5 @@ client/.vs/client/FileContentIndex/bf1eb9cd-4630-433d-ad2a-ceecdf40041f.vsidx
 *.lock
 *.sqlite
 client/.vs/ProjectSettings.json
+client/.vs/VSWorkspaceState.json
+client/.vs/client/v17/.wsuo
