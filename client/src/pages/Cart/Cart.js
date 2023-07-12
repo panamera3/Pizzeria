@@ -18,7 +18,7 @@ const Cart = () => {
   const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
   const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
 
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([{}]);
   const [showTooltip, setShowTooltip] = useState(false);
 
   const [productsAmount, setProductsAmount] = useState(0);

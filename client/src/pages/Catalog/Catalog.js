@@ -122,9 +122,9 @@ const Catalog = () => {
               }}
             >
               <img src={pizza.image} alt="Пицца" width="200em" />
-              <h3>{pizza.name}</h3>
+              <h3 style={{paddingLeft: "0", marginLeft: "0", marginTop: "1em"}}>{pizza.name}</h3>
               <p style={{ margin: "1em 0" }}>{pizza.structure}</p>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <h4>{pizza.price} р.</h4>
                 <button
                   onClick={() => openModalCard(pizza)}
