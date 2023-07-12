@@ -9,7 +9,7 @@ import "./Cart.css";
 
 const Cart = () => {
   const navigate = useNavigate();
-  
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -31,8 +31,7 @@ const Cart = () => {
     navigate("/");
   };
 
-  const applyPromocode = () => {
-  };
+  const applyPromocode = () => {};
 
   const decreaseAmount = (product) => {
     // менять кол-во внутри списка products
@@ -85,9 +84,15 @@ const Cart = () => {
                     >
                       -
                     </button>
-                    <span className="cart-product-amount">
-                      {product.amount}
-                    </span>
+                    <input
+                      id="cart-product-amount"
+                      type="number"
+                      min={1}
+                      max={100}
+                      size={1}
+                      value={product.amount}
+                    />
+                    {/* поменять на input */}
                     <button
                       onClick={() => increaseAmount(product)}
                       className="cart-button-amount"
