@@ -5,7 +5,7 @@ import { useLocalStorage } from "react-use";
 import "./App.css";
 // pages
 import Cart from "./Cart/Cart";
-import Order from "./Order";
+import Order from "./Order/Order";
 import Catalog from "./Catalog/Catalog";
 import PersonalAccount from "./PersonalAccount/PersonalAccount";
 import Login from "./Login/Login";
@@ -21,6 +21,8 @@ import "typeface-montserrat";
 const App = () => {
   const [user, setUser] = useLocalStorage("user");
   const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
+  // чтобы передавать данные с корзины на страницу заказа 
+  const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
 
   return (
     <>

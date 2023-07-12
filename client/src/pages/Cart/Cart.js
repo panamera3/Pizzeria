@@ -16,6 +16,7 @@ const Cart = () => {
 
   const [user, setUser] = useLocalStorage("user");
   const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
+  const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
 
   const [products, setProducts] = useState([]);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -47,7 +48,7 @@ const Cart = () => {
   }, [cartProducts]);
 
   useEffect(() => {
-    setDeliveryPrice(products > 0 ? productsPrice >= 500 ? 0 : 200 : 0);
+    setDeliveryPrice(products > 0 ? (productsPrice >= 500 ? 0 : 200) : 0);
   }, [productsPrice]);
 
   useEffect(() => {
@@ -92,6 +93,11 @@ const Cart = () => {
     console.log(3246789);
     /* заносить данные о том, что есть в корзине, в локалстор */
     /* перенаправлять на страницу оформления заказа */
+    setOrderInfo({
+      
+      deliveryPrice: { deliveryPrice },
+      totalPrice: { totalPrice },
+    });
     navigate("/order");
   };
 
