@@ -3,8 +3,8 @@ const Navigation = ({ style }) => {
     <div className="nagivation" style={style}>
       <a href="/">Главная</a>
       <a href="/catalog">Меню</a>
-      <a href="/about-us">О нас</a> {/* добавить ссылку*/}
-      <a href="/restaurants">Рестораны</a> {/* добавить ссылку*/}
+      <a href="/pizzeria/about-us">О нас</a> 
+      <a href="/pizzeria/restaurants">Рестораны</a>
     </div>
   );
 };

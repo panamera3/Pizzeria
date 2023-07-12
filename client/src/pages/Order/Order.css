@@ -1,325 +1,317 @@
-main{
-    background: #FAFAFA;
+main {
+  background: #fafafa;
 }
-.title{
-    display: flex;
-    width: 457px;
-    height: 57px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    padding-left: 300px;
+.title {
+  display: flex;
+  width: 457px;
+  height: 57px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-left: 300px;
 }
-.personalInfo input{
-    width: 340px;
-height: 42px;
-flex-shrink: 0;
-border-radius: 7px;
-border: 1px solid #CCC;
-background: rgba(221, 221, 221, 0.30);
+.personalInfo input {
+  width: 340px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  background: rgba(221, 221, 221, 0.3);
 }
-.personalInfo{
-    display: flex;
-    width: 1240px;
-    height: 113px;
-    
-    margin-left: 300px;
-    justify-content: center;
-    
-    gap: 47px;
-    flex-shrink: 0;
-    border-radius: 10px;
-border: 1px solid #DDD;
-background: #FFF;
-color: #444;
-font-family: Open Sans;
-font-size: 15px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+.personalInfo {
+  display: flex;
+  width: 1240px;
+  height: 113px;
 
-}
+  margin-left: 300px;
+  justify-content: center;
 
-
-.personalInfo button{
-    width: 20px;
-    height: 20px;
-    margin-top: 60px;
-    margin-left: -30px;
-    background-color: #FFF;
-    border: none;
-    background-image: url("./img/pencil.png")
-    
-}
-.adress{
-    display: flex;
-    width: 435px;
-    
-    
-}
-.adress p{
-    margin-right: 20px;
-     
-}
-.adress input{
-    position: center;
-    display: flex;
-    width: 435px;
-height: 32px;
-flex-shrink: 0;
-border-radius: 5px;
-border: 1px solid #CCC;
-margin-top: 10px;
-
+  gap: 47px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #444;
+  font-family: Open Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.nearAdress{
-    display: flex;
-    padding-bottom: 5px;
-    
+.personalInfo button {
+  width: 20px;
+  height: 20px;
+  margin-top: 60px;
+  margin-left: -30px;
+  background-color: #fff;
+  border: none;
+  background-image: url("../../images/pencil.png");
+}
+.adress {
+  display: flex;
+  width: 435px;
+}
+.adress p {
+  margin-right: 20px;
+}
+.adress input {
+  position: center;
+  display: flex;
+  width: 435px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
 }
 
-.nearAdress div{
-    padding-bottom: 10px;
-    padding-right: 15px;
+.nearAdress {
+  display: flex;
+  padding-bottom: 5px;
 }
 
-.nearAdress p{
-    margin-right: 10px;
-}
-.nearAdress input{
-    width: 100px;
-height: 32px;
-flex-shrink: 0;
-border-radius: 5px;
-border: 1px solid #CCC;
-margin-right: 10px;
+.nearAdress div {
+  padding-bottom: 10px;
+  padding-right: 15px;
 }
 
-.adressNTime{
-    padding: 10px;
-    margin-left: 300px;
-    width: 1225px;
-    height: 582px;
-border-radius: 10px;
-border: 1px solid #DDD;
-background: #FFF;
-padding: 37px;
+.nearAdress p {
+  margin-right: 10px;
 }
-h3{
-    display: flex;
-height: 21px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-font-family: Open Sans;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-padding-left: 300px;
-margin-left: 10px;
-margin-bottom: 10px;
-} 
-.comment textarea{
-width: 523px;
-height: 141px;
-margin-top:0px;
-}
-.bold{
-    display: flex;
-    width: 490px;
-    height: 18px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #000;
-font-family: Montserrat;
-font-size: 17px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+.nearAdress input {
+  width: 100px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
 }
 
-.delivery button{
-    width: 139px;
-height: 35px;
-flex-shrink: 0;
-background-color: #D31C29;
-color: #FFF;
-text-align: center;
-font-family: Open Sans;
-font-size: 15px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-border-radius: 40px;
-border: none;
-margin-right: 27px;
+.adressNTime {
+  padding: 10px;
+  margin-left: 300px;
+  width: 1225px;
+  height: 582px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 37px;
+}
+h3 {
+  display: flex;
+  height: 21px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 300px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.comment textarea {
+  width: 523px;
+  height: 141px;
+  margin-top: 0px;
+}
+.bold {
+  display: flex;
+  width: 490px;
+  height: 18px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.buttonNewAdress{
-    border-radius: 10px 0px 0px 10px;
-background: #666;
-width: 132.167px;
-height: 37px;
-color:#FFF;
-border: none;
-margin-right: 0px;
-margin-top: 27px;
-margin-bottom: 21px;
+.delivery button {
+  width: 139px;
+  height: 35px;
+  flex-shrink: 0;
+  background-color: #d31c29;
+  color: #fff;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 40px;
+  border: none;
+  margin-right: 27px;
 }
 
-.btn-adress{
-    font-size: 0;
+.buttonNewAdress {
+  border-radius: 10px 0px 0px 10px;
+  background: #666;
+  width: 132.167px;
+  height: 37px;
+  color: #fff;
+  border: none;
+  margin-right: 0px;
+  margin-top: 27px;
+  margin-bottom: 21px;
 }
 
-.savedAdress{
-    border-radius: 0px 10px 10px 0px;
-background: #D9D9D9;
-width: 172.833px;
-height: 37px;
-flex-shrink: 0;
-border: none;
-margin-left: 0px;
-margin-top: 27px;
-margin-bottom: 21px;
-color: #000;
-font-weight: 600;
-}
-select{
-    width: 85px;
-height: 32px;
-flex-shrink: 0;
-border-radius: 5px;
-border: 1px solid #444;
-}
-.time{
-    display: flex;
+.btn-adress {
+  font-size: 0;
 }
 
-.time select{
-    margin-top: 10px;
-    margin-left: 20px;
+.savedAdress {
+  border-radius: 0px 10px 10px 0px;
+  background: #d9d9d9;
+  width: 172.833px;
+  height: 37px;
+  flex-shrink: 0;
+  border: none;
+  margin-left: 0px;
+  margin-top: 27px;
+  margin-bottom: 21px;
+  color: #000;
+  font-weight: 600;
+}
+select {
+  width: 85px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #444;
+}
+.time {
+  display: flex;
 }
 
-.comment textarea{
-    width: 523px;
-    height: 141px;
-resize: none;
-border-radius: 5px;
-border: 1px solid #CCC;
+.time select {
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
-.payment{
-    display: flex;
-    height: 37px;
-}
-.payment div{
-    margin-top: 7px;
-    margin-left: 300px;
-    font-size: 0;
+.comment textarea {
+  width: 523px;
+  height: 141px;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.payment p{
-    margin-right: 14px;
+.payment {
+  display: flex;
+  height: 37px;
+}
+.payment div {
+  margin-top: 7px;
+  margin-left: 300px;
+  font-size: 0;
 }
 
-.payment input{
-    margin-top: 10px;
-    width: 104px;
-height: 32px;
-flex-shrink: 0;
-border-radius: 5px;
-border: 1px solid #CCC;
-background: #FFF;
+.payment p {
+  margin-right: 14px;
 }
 
-.cash{
-    width: 132.167px;
-height: 37px;
-border-radius: 10px 0px 0px 10px;
-background: #666;
-color: #FFF;
-border: none;
-margin-right:0px;
-padding-right: 0px;
+.payment input {
+  margin-top: 10px;
+  width: 104px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
 }
 
-.card{
-    width: 239px;
-height: 37px;
-border-right: 1px solid #666;
-border-left: 1px solid #666;
-background: #D9D9D9;
-border: none;
-margin-left: 0px;
-margin-right: 0px;
-padding-left: 0px;
-padding-right: 0px;
+.cash {
+  width: 132.167px;
+  height: 37px;
+  border-radius: 10px 0px 0px 10px;
+  background: #666;
+  color: #fff;
+  border: none;
+  margin-right: 0px;
+  padding-right: 0px;
 }
 
-.online{
-    width: 109px;
-height: 37px;
-flex-shrink: 0;
-border-radius: 0px 10px 10px 0px;
-background: #D9D9D9;
-border: none;
-margin-right: 52px;
-margin-left: 0px;
-padding-left: 0px;
+.card {
+  width: 239px;
+  height: 37px;
+  border-right: 1px solid #666;
+  border-left: 1px solid #666;
+  background: #d9d9d9;
+  border: none;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
-.sumZak{
-    color: #000;
-font-family: Open Sans;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-width: 504px;
-height: 105px;
-border-radius: 10px;
-border: 1px solid #DDD;
-background: #FFF;
-margin-top: 15px;
-display: flex;
-justify-content: space-between;
-padding: 15px 22px 14px 22px;
-margin-left: 300px;
-margin-top: 23px;
+.online {
+  width: 109px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 0px 10px 10px 0px;
+  background: #d9d9d9;
+  border: none;
+  margin-right: 52px;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
-.sumZak text{
-    padding-right: 250px;
+.sumZak {
+  color: #000;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 504px;
+  height: 105px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 22px 14px 22px;
+  margin-left: 300px;
+  margin-top: 23px;
+}
+
+.sumZak text {
+  padding-right: 250px;
 }
 
 .itog {
-    color: #000;
-font-family: Open Sans;
-font-size: 25px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-margin-left: 320px;
-margin-top: 23px;
+  color: #000;
+  font-family: Open Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 320px;
+  margin-top: 23px;
 }
 
-.itog button{
-    margin-left: 170px;
-    width: 229px;
-height: 48px;
-flex-shrink: 0;
-color: #FFF;
-text-align: center;
-font-family: Open Sans;
-font-size: 23px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-background-color: #D31C29;
-border: none;
-border-radius: 20px;
+.itog button {
+  margin-left: 170px;
+  width: 229px;
+  height: 48px;
+  flex-shrink: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background-color: #d31c29;
+  border: none;
+  border-radius: 20px;
 }

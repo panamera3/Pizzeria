@@ -27,17 +27,17 @@ const App = () => {
   return (
     <>
       <Header />
-      <BrowserRouter>
+      <BrowserRouter basename="/Pizzeria">
         <div className="body">
           <Routes>
-            <Route path="" element={<Main />} />
-            <Route path="login" element={<Login />} />
-            <Route path="catalog" element={<Catalog />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="order" element={<Order />} />
-            <Route path="personal-account" element={<PersonalAccount />} />
-            <Route path="about-us" element={<AboutUs />} />
-            <Route path="restaurants" element={<Restaurants />} />
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/personal-account" element={<PersonalAccount />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/restaurants" element={<Restaurants />} />
             {/* перенаправлять пользователя на главную страницу, если ввёл несуществующий путь */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
