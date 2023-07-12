@@ -10,31 +10,31 @@ import Modal from "../../components/Modal";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [telDirty, setTelDirty] = useState(false);
+  const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
-  const [telError, setTelError] = useState("Телефон не может быть пустым");
+  const [emailError, setEmailError] = useState("Email не может быть пустым");
   const [passwordError, setPasswordError] = useState(
     "Пароль не может быть пустым"
   );
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (telError || passwordError) {
+    if (emailError || passwordError) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [telError, passwordError]);
+  }, [emailError, passwordError]);
 
-  const telHandler = (e) => {
-    setTel(e.target.value);
-    const re = /^[\d\+][\d\(\)\ -]{4,14}\d$/;
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+    const re = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ;
     if (re.test(String(e.target.value).toLowerCase())) {
-      setTelError("Телефон введён некорректно");
+      setEmailError("Почта введена некорректно");
     } else {
-      setTelError("");
+      setEmailError("");
     }
   };
 
@@ -52,8 +52,8 @@ const Login = () => {
 
   const blurHandler = (e) => {
     switch (e.target.name) {
-      case "tel":
-        setTelDirty(true);
+      case "email":
+        setEmailDirty(true);
         break;
       case "password":
         setPasswordDirty(true);
@@ -85,21 +85,21 @@ const Login = () => {
             <h2 className="login__title">Вход</h2>
           </div>
           <div className="login-input__wrapper">
-            <label className="login__label" for="tel__input">
+            <label className="login__label" for="email__input">
               Телефон:
             </label>
-            {telDirty && telError && (
-              <div style={{ color: "red" }}>{telError}</div>
+            {emailDirty && emailError && (
+              <div style={{ color: "red" }}>{emailError}</div>
             )}
             <input
-              onChange={(e) => telHandler(e)}
-              value={tel}
+              onChange={(e) => emailHandler(e)}
+              value={email}
               onBlur={(e) => blurHandler(e)}
-              name="tel"
+              name="email"
               className="login__input"
-              id="tel__input"
-              type="tel"
-              placeholder="+7 999 999 99 99"
+              id="email__input"
+              type="email"
+              placeholder="absdefgh@mail.com"
             />
           </div>
           <div className="login-input__wrapper">
