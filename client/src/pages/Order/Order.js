@@ -4,7 +4,7 @@ import { useLocalStorage } from "react-use";
 import "./Order.css"
 
 const Order = () => {
-  // чтобы передавать данные с корзины на страницу заказа
+  // формат: {productsPrice- сумма заказа, deliveryPrice-цена доставки, totalPrice - итоговая цена}
   const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
 
   return (
