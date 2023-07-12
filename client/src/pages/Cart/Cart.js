@@ -9,28 +9,51 @@ import Modal from "../../components/Modal";
 import "./Cart.css";
 // images
 import logoWhite from "../../images/logo-white.svg";
+import Exit from "../../images/Exit.svg";
 
 const Cart = () => {
   const navigate = useNavigate();
+
   const [user, setUser] = useLocalStorage("user");
+  const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
 
   const [products, setProducts] = useState([]);
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const [productsAmount, setProductsAmount] = useState(0);
+  const [productsPrice, setProductsPrice] = useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     // проверять, залогинен ли юзер
-    const allProducts = [
-      { id: 1, name: "Пепперони", description: "exmaple", amount: 2 },
-      { id: 2, name: "Карбонара", description: "exmaple" },
-      { id: 1, name: "Пепперони", description: "exmaple" },
-      { id: 2, name: "Карбонара", description: "exmaple" },
-      { id: 1, name: "Пепперони", description: "exmaple" },
-      { id: 2, name: "Карбонара", description: "exmaple" },
-      { id: 1, name: "Пепперони", description: "exmaple" },
-      { id: 2, name: "Карбонара", description: "exmaple" },
-    ];
-    setProducts(allProducts);
+    setProducts(cartProducts);
   }, []);
+
+  useEffect(() => {
+    setProductsAmount(
+      products.reduce((total, product) => total + product.amount, 0)
+    );
+    setProductsPrice(
+      products.reduce(
+        (total, product) => total + product.price * product.amount,
+        0
+      )
+    );
+  }, [products]);
+
+  useEffect(() => {
+    setProducts(cartProducts);
+  }, [cartProducts]);
+
+  useEffect(() => {
+    setDeliveryPrice(productsPrice >= 500 ? 0 : 200);
+  }, [productsPrice]);
+
+  useEffect(() => {
+    setTotalPrice(productsPrice + deliveryPrice - discountPrice);
+  }, [productsPrice, deliveryPrice, discountPrice]);
 
   const onCloseCart = () => {
     navigate("/");
@@ -39,11 +62,26 @@ const Cart = () => {
   const applyPromocode = () => {};
 
   const decreaseAmount = (product) => {
-    // менять кол-во внутри списка products
+    const updatedProducts = products.map((item) =>
+      item.id === product.id ? { ...item, amount: product.amount - 1 } : item
+    );
+    setProducts(updatedProducts);
+    setCartProducts(updatedProducts);
   };
 
   const increaseAmount = (product) => {
-    // менять кол-во внутри списка products
+    const updatedProducts = products.map((item) =>
+      item.id === product.id ? { ...item, amount: product.amount + 1 } : item
+    );
+    setProducts(updatedProducts);
+    setCartProducts(updatedProducts);
+  };
+
+  const deleteProduct = (product) => {
+    const cartProductsWithoutDeleted = cartProducts.filter(
+      (p) => p.id !== product.id
+    );
+    setCartProducts(cartProductsWithoutDeleted);
   };
 
   const makeOrder = () => {
@@ -81,55 +119,76 @@ const Cart = () => {
           stylePosition={{ right: "0", position: "absolute" }}
         >
           <div className="cart-container">
-            <h2 style={{ fontSize: "30px" }}>Ваши товары</h2>
-            <p className="cart-amount-order">
-              Количество позиций в заказе: {products.length}
-            </p>{" "}
-            {/* пересчитывать количесвто, исходя из количества одного продукта */}
-            {products.map((product) => (
-              <div className="cart-product-card">
-                <div className="cart-product-info">
+            <div
+              style={{
+                position: "fixed",
+                top: "0",
+                /*
+                right: "0",
+                */
+                width: "30em",
+                backgroundColor: "#ffffff",
+              }}
+            >
+              <h2 style={{ fontSize: "30px" }}>Ваши товары</h2>
+              <p className="cart-amount-order">
+                Количество позиций в заказе: {productsAmount}
+              </p>
+            </div>
+            <div style={{ marginTop: "5em" }}>
+              {/* пересчитывать количесвто, исходя из количества одного продукта */}
+              {products.map((product) => (
+                <div className="cart-product-card">
                   <img
-                    src="https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg" // поменять на изображение пиццы
-                    alt=""
-                    width="30%"
+                    className="cart-delete"
+                    src={Exit}
+                    alt="Удалить товар"
+                    onClick={() => deleteProduct(product)}
+                    style={{
+                      width: "20px",
+                      float: "right",
+                      cursor: "pointer",
+                    }}
                   />
-                  <div className="cart-product-text">
-                    <p>{product.name}</p>
-                    <p className="cart-product-description">
-                      {product.description}
-                    </p>
+                  <div className="cart-product-info">
+                    <img src={product.image} alt="" width="30%" />
+                    <div className="cart-product-text">
+                      <p>{product.name}</p>
+                      <p className="cart-product-description">
+                        {product.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="cart-horizontal-line" />
-                <div className="cart-product-price">
-                  <p>{product.price * product.count} Р</p>
+                  <div className="cart-horizontal-line" />
+                  <div className="cart-product-price">
+                    <p>{product.price * product.amount} Р</p>
 
-                  <div>
-                    <button
-                      onClick={() => decreaseAmount(product)}
-                      className="cart-button-amount"
-                    >
-                      -
-                    </button>
-                    <input
-                      id="cart-product-amount"
-                      type="number"
-                      min={1}
-                      max={100}
-                      size={1}
-                      value={product.amount}
-                    />
-                    <button
-                      onClick={() => increaseAmount(product)}
-                      className="cart-button-amount"
-                    >
-                      +
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => decreaseAmount(product)}
+                        className="cart-button-amount"
+                      >
+                        -
+                      </button>
+                      <input
+                        id="cart-product-amount"
+                        type="number"
+                        min={1}
+                        max={100}
+                        size={1}
+                        value={product.amount}
+                      />
+                      <button
+                        onClick={() => increaseAmount(product)}
+                        className="cart-button-amount"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           <div className="cart-order-container">
             <div>
@@ -146,20 +205,20 @@ const Cart = () => {
             </div>
             <div className="cart-price-container">
               <div className="cart-price-line">
-                <p>{products.length} товара</p>
-                <p>{1} Р</p>
+                <p>{productsAmount} товара</p>
+                <p>{productsPrice} Р</p>
               </div>
               <div className="cart-price-line">
                 <p>Скидка</p>
-                <p>{1} Р</p>
+                <p>{discountPrice} Р</p>
               </div>
               <div className="cart-price-line">
                 <p>Доставка</p>
-                <p>{1} Р</p>
+                <p>{deliveryPrice} Р</p>
               </div>
               <div className="cart-price-line">
                 <p>Итого</p>
-                <p>{1} Р</p>
+                <p>{totalPrice} Р</p>
               </div>
             </div>
 

@@ -12,7 +12,6 @@ const Catalog = () => {
   const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
 
   const [products, setProducts] = useState([]);
-  const [productsWithAmount, setProductsWithAmount] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedProductAmount, setSelectedProductAmount] = useState(1);
@@ -33,7 +32,7 @@ const Catalog = () => {
         structure: "4, 5, 6",
         price: 500,
         image:
-          "https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg",
+          "https://irecommend.ru/sites/default/files/product-images/1339976/i4668kkcx1ofAWDK4z0pQ.jpg",
       },
       {
         id: 3,
@@ -49,7 +48,7 @@ const Catalog = () => {
         structure: "adfsadf",
         price: 400,
         image:
-          "https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg",
+          "https://irecommend.ru/sites/default/files/product-images/1339976/i4668kkcx1ofAWDK4z0pQ.jpg",
       },
     ]);
     //setCartProducts([]);
@@ -60,14 +59,6 @@ const Catalog = () => {
       setSelectedProductAmount(1);
     }
   }, [selectedProductAmount]);
-
-  useEffect(() => {
-    const newProducts = products.map((product) => ({
-      ...product,
-      amount: 0,
-    }));
-    setProductsWithAmount(newProducts);
-  }, [products]);
 
   const openModalCard = (product) => {
     setSelectedProduct(product);
@@ -110,6 +101,7 @@ const Catalog = () => {
       }
     }
     setCartProducts(allCartProducts);
+    closeModalCard();
   };
 
   return (
@@ -129,7 +121,7 @@ const Catalog = () => {
                 margin: "1em",
               }}
             >
-              <img src={pizza.image} alt="Пицца" />
+              <img src={pizza.image} alt="Пицца" width="200em" />
               <h3>{pizza.name}</h3>
               <p style={{ margin: "1em 0" }}>{pizza.structure}</p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -169,7 +161,7 @@ const Catalog = () => {
         >
           <h2 style={{ marginBottom: "1em" }}>{selectedProduct.name}</h2>
           <img
-            src="https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg"
+            src={selectedProduct.image}
             alt=""
             width="100%"
           />

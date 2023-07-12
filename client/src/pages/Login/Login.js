@@ -1,15 +1,18 @@
 // styles
 import "./Login.css";
 // components
-import Exit from "../../images/Exit.svg";
 import Background from "../../components/Background";
 // libraries
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
+import { useLocalStorage } from "react-use";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [user, setUser] = useLocalStorage("user");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailDirty, setEmailDirty] = useState(false);
@@ -24,6 +27,9 @@ const Login = () => {
   const [isRecovery, setIsRecovery] = useState(false);
 
   useEffect(() => {
+    if (user.id) {
+      //navigate("/personal-account");
+    }
     if (emailError || passwordError) {
       setFormValid(false);
     } else {
