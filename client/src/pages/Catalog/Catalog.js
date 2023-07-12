@@ -1,5 +1,6 @@
 // libraries
 import { useEffect, useState } from "react";
+import axios from 'axios';
 // styles
 import "./Catalog.css";
 // components

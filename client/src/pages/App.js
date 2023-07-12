@@ -20,6 +20,7 @@ import "typeface-montserrat";
 
 const App = () => {
   const [user, setUser] = useLocalStorage("user");
+  const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
 
   return (
     <>

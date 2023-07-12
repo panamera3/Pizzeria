@@ -20,6 +20,9 @@ const Login = () => {
   );
   const [formValid, setFormValid] = useState(false);
 
+  const [isRegistration, setIsRegistration] = useState(false);
+  const [isRecovery, setIsRecovery] = useState(false);
+
   useEffect(() => {
     if (emailError || passwordError) {
       setFormValid(false);
@@ -30,7 +33,8 @@ const Login = () => {
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
-    const re = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ;
+    const re =
+      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     if (re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Почта введена некорректно");
     } else {
@@ -84,54 +88,167 @@ const Login = () => {
           <div className="login-title__wrapper">
             <h2 className="login__title">Вход</h2>
           </div>
-          <div className="login-input__wrapper">
-            <label className="login__label" for="email__input">
-              Почта:
-            </label>
-            {emailDirty && emailError && (
-              <div style={{ color: "red" }}>{emailError}</div>
-            )}
-            <input
-              onChange={(e) => emailHandler(e)}
-              value={email}
-              onBlur={(e) => blurHandler(e)}
-              name="email"
-              className="login__input"
-              id="email__input"
-              type="email"
-              placeholder="absdefgh@mail.com"
-            />
-          </div>
-          <div className="login-input__wrapper">
-            <label className="login__label" for="password__input">
-              Пароль:
-            </label>
-            {passwordDirty && passwordError && (
-              <div style={{ color: "red" }}>{passwordError}</div>
-            )}
-            <input
-              onChange={(e) => passwordHandler(e)}
-              value={password}
-              onBlur={(e) => blurHandler(e)}
-              name="password"
-              className="login__input"
-              id="password__input"
-              type="password"
-              placeholder="qwerty"
-            />
-          </div>
+          {!isRegistration && !isRecovery && (
+            <div className="login-input">
+              <div className="login-input__wrapper">
+                <label className="login__label" for="email__input">
+                  Почта:
+                </label>
+                {emailDirty && emailError && (
+                  <div style={{ color: "red" }}>{emailError}</div>
+                )}
+                <input
+                  onChange={(e) => emailHandler(e)}
+                  value={email}
+                  onBlur={(e) => blurHandler(e)}
+                  name="email"
+                  className="login__input"
+                  id="email__input"
+                  type="email"
+                  placeholder="absdefgh@mail.com"
+                />
+              </div>
+              <div className="login-input__wrapper">
+                <label className="login__label" for="password__input">
+                  Пароль:
+                </label>
+                {passwordDirty && passwordError && (
+                  <div style={{ color: "red" }}>{passwordError}</div>
+                )}
+                <input
+                  onChange={(e) => passwordHandler(e)}
+                  value={password}
+                  onBlur={(e) => blurHandler(e)}
+                  name="password"
+                  className="login__input"
+                  id="password__input"
+                  type="password"
+                  placeholder="qwerty"
+                />
+              </div>
+            </div>
+          )}
+
+          {isRegistration && (
+            <div className="login-input">
+              <p>example1</p>
+              {/* поменять логику на логику регистрации пользователя
+              <div className="login-input__wrapper">
+                <label className="login__label" for="email__input">
+                  Почта:
+                </label>
+                {emailDirty && emailError && (
+                  <div style={{ color: "red" }}>{emailError}</div>
+                )}
+                <input
+                  onChange={(e) => emailHandler(e)}
+                  value={email}
+                  onBlur={(e) => blurHandler(e)}
+                  name="email"
+                  className="login__input"
+                  id="email__input"
+                  type="email"
+                  placeholder="absdefgh@mail.com"
+                />
+              </div>
+              <div className="login-input__wrapper">
+                <label className="login__label" for="password__input">
+                  Придумайте пароль:
+                </label>
+                {passwordDirty && passwordError && (
+                  <div style={{ color: "red" }}>{passwordError}</div>
+                )}
+                <input
+                  onChange={(e) => passwordHandler(e)}
+                  value={password}
+                  onBlur={(e) => blurHandler(e)}
+                  name="password"
+                  className="login__input"
+                  id="password__input"
+                  type="password"
+                  placeholder="qwerty"
+                />
+                </div>*/}
+            </div>
+          )}
+          {isRecovery && (
+            <div className="login-input">
+              <p>example2</p>
+            </div>
+          )}
           <button disabled={!formValid} className="login__submit" type="submit">
             Продолжить
           </button>
         </form>
-        <div className="login__wrapper">
-          <button className="login__button" type="button">
-            Регистрация
-          </button>
-          <button className="login__button" type="button">
-            Забыли пароль?
-          </button>
-        </div>
+        {!isRegistration && !isRecovery && (
+          <div className="login__wrapper">
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRegistration(true);
+              }}
+            >
+              Регистрация
+            </button>
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRecovery(true);
+              }}
+            >
+              Забыли пароль?
+            </button>
+          </div>
+        )}
+        {isRegistration && (
+          <div className="login__wrapper">
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRegistration(false);
+              }}
+            >
+              Вход
+            </button>
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRegistration(false);
+                setIsRecovery(true);
+              }}
+            >
+              Забыли пароль?
+            </button>
+          </div>
+        )}
+        {isRecovery && (
+          <div className="login__wrapper">
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRecovery(false);
+              }}
+            >
+              Вход
+            </button>
+            <button
+              className="login__button"
+              type="button"
+              onClick={() => {
+                setIsRecovery(false);
+                setIsRegistration(true);
+              }}
+            >
+              Регистрация
+            </button>
+          </div>
+        )}
+
         <a href="#" className="login__link">
           Политика обработки персональных данных
         </a>
