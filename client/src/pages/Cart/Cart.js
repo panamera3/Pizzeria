@@ -27,7 +27,6 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    // проверять, залогинен ли юзер
     setProducts(cartProducts);
   }, []);
 
@@ -48,7 +47,7 @@ const Cart = () => {
   }, [cartProducts]);
 
   useEffect(() => {
-    setDeliveryPrice(productsPrice >= 500 ? 0 : 200);
+    setDeliveryPrice(products > 0 ? productsPrice >= 500 ? 0 : 200 : 0);
   }, [productsPrice]);
 
   useEffect(() => {
@@ -115,7 +114,7 @@ const Cart = () => {
           isOpen={true}
           onClose={onCloseCart}
           width="30em"
-          height="60%"
+          height="55%"
           stylePosition={{ right: "0", position: "absolute" }}
         >
           <div className="cart-container">
@@ -123,39 +122,44 @@ const Cart = () => {
               style={{
                 position: "fixed",
                 top: "0",
-                /*
-                right: "0",
-                */
                 width: "30em",
                 backgroundColor: "#ffffff",
+                zIndex: "50",
               }}
             >
               <h2 style={{ fontSize: "30px" }}>Ваши товары</h2>
               <p className="cart-amount-order">
                 Количество позиций в заказе: {productsAmount}
               </p>
+              <div style={{ borderBottom: "1px solid black", width: "29em" }} />
             </div>
-            <div style={{ marginTop: "5em" }}>
+            <div style={{ marginTop: "6em" }}>
               {/* пересчитывать количесвто, исходя из количества одного продукта */}
               {products.map((product) => (
                 <div className="cart-product-card">
-                  <img
-                    className="cart-delete"
-                    src={Exit}
-                    alt="Удалить товар"
-                    onClick={() => deleteProduct(product)}
-                    style={{
-                      width: "20px",
-                      float: "right",
-                      cursor: "pointer",
-                    }}
-                  />
+                  <div>
+                    <img
+                      className="cart-delete"
+                      src={Exit}
+                      alt="Удалить товар"
+                      onClick={() => deleteProduct(product)}
+                      style={{
+                        display: "block",
+                        width: "20px",
+                        float: "right",
+                        cursor: "pointer",
+                        position: "relative",
+                        top: "0",
+                        right: "0",
+                      }}
+                    />
+                  </div>
                   <div className="cart-product-info">
                     <img src={product.image} alt="" width="30%" />
                     <div className="cart-product-text">
                       <p>{product.name}</p>
                       <p className="cart-product-description">
-                        {product.description}
+                        Традиционное тесто, 25 см
                       </p>
                     </div>
                   </div>

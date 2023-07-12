@@ -12,13 +12,24 @@ const Modal = ({ isOpen, onClose, children, width, stylePosition, height }) => {
     <>
       <div className="modal-overlay">
         <div className="modal" style={stylePosition}>
-          <div className="modal-content" style={{ width: `${width}`, height: `${height}` }}>
-            <img
-              className="modal-exit"
-              src={Exit}
-              alt="Кнопка выхода"
-              onClick={onClose}
-            />
+          <div
+            className="modal-content"
+            style={{ width: `${width}`, height: `${height}` }}
+          >
+            <div
+              style={{
+                position: "fixed",
+                width: `${width}`,
+                zIndex: "99"
+              }}
+            >
+              <img
+                className="modal-exit"
+                src={Exit}
+                alt="Кнопка выхода"
+                onClick={onClose}
+              />
+            </div>
             {children}
           </div>
         </div>
