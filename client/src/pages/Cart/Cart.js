@@ -120,7 +120,6 @@ const Cart = () => {
                       size={1}
                       value={product.amount}
                     />
-                    {/* поменять на input */}
                     <button
                       onClick={() => increaseAmount(product)}
                       className="cart-button-amount"

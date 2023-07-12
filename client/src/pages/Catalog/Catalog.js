@@ -1,6 +1,7 @@
 // libraries
 import { useEffect, useState } from "react";
-import axios from 'axios';
+import { useLocalStorage } from "react-use";
+import axios, { all } from "axios";
 // styles
 import "./Catalog.css";
 // components
@@ -8,7 +9,10 @@ import SecondBackground from "../../components/SecondBackground";
 import Modal from "../../components/Modal";
 
 const Catalog = () => {
+  const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
+
   const [products, setProducts] = useState([]);
+  const [productsWithAmount, setProductsWithAmount] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedProductAmount, setSelectedProductAmount] = useState(1);
@@ -48,6 +52,7 @@ const Catalog = () => {
           "https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg",
       },
     ]);
+    //setCartProducts([]);
   }, []);
 
   useEffect(() => {
@@ -56,6 +61,14 @@ const Catalog = () => {
     }
   }, [selectedProductAmount]);
 
+  useEffect(() => {
+    const newProducts = products.map((product) => ({
+      ...product,
+      amount: 0,
+    }));
+    setProductsWithAmount(newProducts);
+  }, [products]);
+
   const openModalCard = (product) => {
     setSelectedProduct(product);
     setModalOpen(true);
@@ -63,9 +76,41 @@ const Catalog = () => {
 
   const closeModalCard = () => {
     setModalOpen(false);
+    setSelectedProductAmount(1);
   };
 
-  // при клике Добавить в корзину, selectedProductAmount будет количеством заказанной пиццы
+  const decreaseAmount = (product) => {
+    setSelectedProductAmount(selectedProductAmount - 1);
+    const updatedProducts = products.map((item) =>
+      item.id === product.id ? { ...item, amount: selectedProductAmount } : item
+    );
+    setProducts(updatedProducts);
+  };
+
+  const increaseAmount = (product) => {
+    setSelectedProductAmount(selectedProductAmount + 1);
+    const updatedProducts = products.map((item) =>
+      item.id === product.id ? { ...item, amount: selectedProductAmount } : item
+    );
+    setProducts(updatedProducts);
+  };
+
+  const addOrder = (product) => {
+    const productWithAmount = { ...product, amount: selectedProductAmount };
+    let allCartProducts = [];
+    if (!cartProducts.length) {
+      allCartProducts = [productWithAmount];
+    } else {
+      if (cartProducts.some((p) => p.id === productWithAmount.id)) {
+        allCartProducts = cartProducts.map((p) =>
+          p.id === product.id ? { ...p, amount: selectedProductAmount } : p
+        );
+      } else {
+        allCartProducts = [...cartProducts, productWithAmount];
+      }
+    }
+    setCartProducts(allCartProducts);
+  };
 
   return (
     <>
@@ -136,22 +181,30 @@ const Catalog = () => {
               alignItems: "center",
             }}
           >
-            <button className="catalog-button">
+            <button
+              className="catalog-button"
+              onClick={() => addOrder(selectedProduct)}
+            >
               Добавить в корзину за{" "}
               {selectedProduct.price * selectedProductAmount} рублей
             </button>
             <div>
               <button
-                //onClick={() => decreaseAmount(product)}
+                onClick={() => decreaseAmount(selectedProduct)}
                 className="cart-button-amount"
               >
                 -
               </button>
-              <span className="cart-product-amount">
-                {selectedProductAmount}
-              </span>
+              <input
+                id="cart-product-amount"
+                type="number"
+                min={1}
+                max={100}
+                size={1}
+                value={selectedProductAmount}
+              />
               <button
-                //onClick={() => increaseAmount(product)}
+                onClick={() => increaseAmount(selectedProduct)}
                 className="cart-button-amount"
               >
                 +
