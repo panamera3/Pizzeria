@@ -26,10 +26,10 @@ const Footer = () => {
           <p>Заказать еду можно по телефону</p>
           <h2>222-22-22</h2>
           <div className="messengers">
-            <a href="/">
+            <a href="tel:2222222">
               <img src={whatsapp} alt="WhatsApp" />
             </a>
-            <a href="/">
+            <a href="tel:2222222">
               <img src={telegram} alt="Telegram" />
             </a>
           </div>

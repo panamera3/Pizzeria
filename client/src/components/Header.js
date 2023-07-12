@@ -31,12 +31,12 @@ const Header = () => {
                 <img src={cart} alt="Корзина" />
               </a>
 
-              <a href="/">
+              <a href="tel:2222222">
                 <img src={whatsapp} alt="WhatsApp" />
                 {/* ссылка на ватсап? */}
               </a>
 
-              <a href="/">
+              <a href="tel:2222222">
                 <img src={telegram} alt="Telegram" /> {/* ссылка на телегу? */}
               </a>
             </div>
