@@ -16,7 +16,7 @@ const PersonalAccount = () => {
     console.log(user);
     // если пользователь не входил ранее, перенаправлять его на страницу входа
     if (!user.id) {
-      // navigate(`${process.env.PUBLIC_URL}/#/login`);
+      navigate(`${process.env.PUBLIC_URL}/#/login`);
     }
   }, []);
 

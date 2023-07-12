@@ -40,9 +40,9 @@ const router = createHashRouter([
 const App = () => {
   const [user, setUser] = useLocalStorage("user");
   // чтобы хранить у каждого пользователя товары в корзине
-  const [cartProducts, setCartProducts] = useLocalStorage("cartProducts");
+  const [cartProducts, setCartProducts] = useLocalStorage("cartProducts", []);
   // чтобы передавать данные с корзины на страницу заказа
-  const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
+  const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo", {});
 
   return (
     <>

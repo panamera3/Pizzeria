@@ -88,19 +88,18 @@ const Cart = () => {
 
   const makeOrder = () => {
     console.log(user);
+    if (!user.id) {
+      setShowTooltip(true); // показывать подсказку о необходимости входа
+      return;
+    }
+
+    console.log(3246789);
     setOrderInfo({
       productsPrice: productsPrice - discountPrice,
       deliveryPrice: deliveryPrice,
       totalPrice: totalPrice,
     });
-    if (!user.id) {
-      setShowTooltip(true);
-      return;
-    }
-    console.log(3246789);
-    /* заносить данные о том, что есть в корзине, в локалстор */
-    /* перенаправлять на страницу оформления заказа */
-    //navigate(`${process.env.PUBLIC_URL}/#/order`);
+    navigate(`${process.env.PUBLIC_URL}/#/order`);
   };
 
   return (
@@ -142,7 +141,6 @@ const Cart = () => {
               <div style={{ borderBottom: "1px solid black", width: "29em" }} />
             </div>
             <div style={{ marginTop: "6em" }}>
-              {/* пересчитывать количесвто, исходя из количества одного продукта */}
               {products.map((product) => (
                 <div className="cart-product-card">
                   <div>

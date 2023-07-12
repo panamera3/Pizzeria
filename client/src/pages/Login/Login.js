@@ -28,7 +28,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user.id) {
-      //navigate("/personal-account");
+      navigate(`${process.env.PUBLIC_URL}/#/personal-account`);
     }
     if (emailError || passwordError) {
       setFormValid(false);
