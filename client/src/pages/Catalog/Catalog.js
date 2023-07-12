@@ -1,7 +1,7 @@
 // libraries
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "react-use";
-import axios, { all } from "axios";
+import axios from "axios";
 // styles
 import "./Catalog.css";
 // components

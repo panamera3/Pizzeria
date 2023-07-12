@@ -36,3 +36,7 @@ packages/react-devtools-extensions/.tempUserDataDir
 packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
+client/.vs/client/FileContentIndex/bf1eb9cd-4630-433d-ad2a-ceecdf40041f.vsidx
+*.lock
+*.sqlite
+client/.vs/ProjectSettings.json
