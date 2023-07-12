@@ -48,7 +48,9 @@ const Cart = () => {
   }, [cartProducts]);
 
   useEffect(() => {
-    setDeliveryPrice(products > 0 ? (productsPrice >= 500 ? 0 : 200) : 0);
+    setDeliveryPrice(
+      products.length > 0 ? (productsPrice >= 500 ? 0 : 200) : 0
+    );
   }, [productsPrice]);
 
   useEffect(() => {
@@ -86,6 +88,11 @@ const Cart = () => {
 
   const makeOrder = () => {
     console.log(user);
+    setOrderInfo({
+      productsPrice: productsPrice - discountPrice,
+      deliveryPrice: deliveryPrice,
+      totalPrice: totalPrice,
+    });
     if (!user.id) {
       setShowTooltip(true);
       return;
@@ -93,12 +100,7 @@ const Cart = () => {
     console.log(3246789);
     /* заносить данные о том, что есть в корзине, в локалстор */
     /* перенаправлять на страницу оформления заказа */
-    setOrderInfo({
-      
-      deliveryPrice: { deliveryPrice },
-      totalPrice: { totalPrice },
-    });
-    navigate("/order");
+    //navigate("/order");
   };
 
   return (
@@ -235,7 +237,7 @@ const Cart = () => {
             <div>
               {showTooltip && (
                 <div className="tooltip">
-                  Чтобы сделать заказ, войдите в личный кабинет пользователя
+                  Чтобы сделать заказ, войдите в аккаунт
                 </div>
               )}
               <button
