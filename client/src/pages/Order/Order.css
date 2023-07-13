@@ -9,6 +9,7 @@ main {
   justify-content: center;
   flex-shrink: 0;
   padding-left: 300px;
+  margin-top: 10px;
 }
 .personalInfo input {
   width: 340px;
@@ -22,10 +23,10 @@ main {
   display: flex;
   width: 1240px;
   height: 113px;
-
+  
   margin-left: 300px;
   justify-content: center;
-
+  padding-top: 30px;
   gap: 47px;
   flex-shrink: 0;
   border-radius: 10px;
@@ -39,10 +40,13 @@ main {
   line-height: normal;
 }
 
+.personalInfo p{
+  padding-bottom: 10px;
+}
 .personalInfo button {
   width: 20px;
   height: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: -30px;
   background-color: #fff;
   border: none;
@@ -51,9 +55,11 @@ main {
 .adress {
   display: flex;
   width: 435px;
+  margin-top: 10px;
 }
 .adress p {
   margin-right: 20px;
+  margin-top: 10px;
 }
 .adress input {
   position: center;
@@ -63,8 +69,10 @@ main {
   flex-shrink: 0;
   border-radius: 5px;
   border: 1px solid #ccc;
-  margin-top: 10px;
+
 }
+
+
 
 .nearAdress {
   display: flex;
@@ -72,12 +80,14 @@ main {
 }
 
 .nearAdress div {
-  padding-bottom: 10px;
   padding-right: 15px;
+  padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 .nearAdress p {
   margin-right: 10px;
+  padding-bottom: 10px;
 }
 .nearAdress input {
   width: 100px;
@@ -110,9 +120,10 @@ h3 {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding-top: 30px;
   padding-left: 300px;
   margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .comment textarea {
   width: 523px;
@@ -189,11 +200,14 @@ select {
 }
 .time {
   display: flex;
+  margin-bottom: 20px;
 }
 
+
+
 .time select {
-  margin-top: 10px;
   margin-left: 20px;
+  margin-top: -5px;
 }
 
 .comment textarea {
@@ -202,20 +216,26 @@ select {
   resize: none;
   border-radius: 5px;
   border: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 .payment {
   display: flex;
   height: 37px;
+  padding-bottom: 20px;
 }
 .payment div {
   margin-top: 7px;
   margin-left: 300px;
   font-size: 0;
+  margin-bottom: 20px;
 }
 
 .payment p {
   margin-right: 14px;
+  margin-top: 20px;
 }
 
 .payment input {
@@ -288,6 +308,10 @@ select {
   padding-right: 250px;
 }
 
+.sumZak p{
+  padding-bottom: 40px;
+}
+
 .itog {
   color: #000;
   font-family: Open Sans;
@@ -297,6 +321,10 @@ select {
   line-height: normal;
   margin-left: 320px;
   margin-top: 23px;
+}
+
+.itog text{
+  margin-right: 10px;
 }
 
 .itog button {
