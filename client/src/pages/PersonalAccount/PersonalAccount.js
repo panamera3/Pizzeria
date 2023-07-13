@@ -4,6 +4,7 @@ import SecondBackground from "../../components/SecondBackground";
 // libraries
 import { useLocalStorage } from "react-use";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 import './PersonalAccount.css'
 import Modal from "./Modal";
@@ -11,14 +12,15 @@ import Modal from "./Modal";
 const PersonalAccount = () => {
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false)
+  const [addressModalActive, setAddressModalActive] = useState(false)
   const [user, setUser] = useLocalStorage("user");
 
   useEffect(() => {
     console.log(user);
     // если пользователь не входил ранее, перенаправлять его на страницу входа
-    if (!user.id) {
-      navigate(`${process.env.PUBLIC_URL}/#/login`);
-    }
+    // if (!user.id) {
+    //   navigate(`${process.env.PUBLIC_URL}/#/login`);
+    // }
   }, []);
 
   return (
@@ -100,10 +102,7 @@ const PersonalAccount = () => {
                 <div>09.07.2023, количество позиций - 3, итого - 4238 Р</div>
                 <div className={'blocks-btn'}>Подробнее</div>
               </div>
-              <div className={'order'}>
-                <div>09.07.2023, количество позиций - 3, итого - 4238 Р</div>
-                <div className={'blocks-btn'}>Подробнее</div>
-              </div>
+
               <div>
                 <div className={'pages'}>
                   <div className={'switcher'}>
@@ -144,9 +143,68 @@ const PersonalAccount = () => {
                   </div>
 
                 </div>
-                <div className={'add-btn'}>
+                <div className={'add-btn'} onClick={() => setAddressModalActive((true))}>
                   Добавить
                 </div>
+                <Modal active={addressModalActive} setActive={setAddressModalActive}>
+                  <div className={'add-card'}>
+                    <section>
+                      <h1>Добавление адреса</h1>
+                      <div className={'card-data-item'}>
+                        Адрес* :
+                        <input style={{width: 488}} placeholder={'Адрес'}/>
+                      </div>
+                      <div className={'card-data'}>
+
+                        <div className={'card-data-item'}>
+                          <p>
+                            Квартира / Офис* :
+                          </p>
+                          <input style={{width: 159}} placeholder={'Квартира / Офис'}/>
+                        </div>
+                        <div className={'card-data-item'}>
+                          <p>
+                            Подъезд:
+                          </p>
+                          <input style={{width: 104}} placeholder={'Подъезд'}/>
+                        </div>
+                        <div className={'card-data-item'}>
+                          <p>
+                            Этаж:
+                          </p>
+                          <input style={{width: 78}} placeholder={'Этаж'}/>
+                        </div>
+                        <div className={'card-data-item'}>
+                          <p>
+                            Домофон:
+                          </p>
+                          <input style={{width: 78}} placeholder={'Есть'}/>
+                        </div>
+                      </div>
+
+                    </section>
+                    <section className={'add-card-btns'}>
+                      <div className={'back-to-pa-btn'} onClick={() => setAddressModalActive(false)}>
+                        Вернуться в личный кабинет
+                      </div>
+                      <div className={'add-address-btn'}>
+                        Добавить адрес
+                      </div>
+                    </section>
+
+                  </div>
+                  <div style={{position:"relative",overflow:"hidden"}}><a
+                      href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps"
+                      style={{color:'#eee',fontSize:12, position:"absolute",top:0}}>Екатеринбург</a><a
+                      href="https://yandex.ru/maps/54/yekaterinburg/?ll=60.597465%2C56.838011&utm_medium=mapframe&utm_source=maps&z=12"
+                      style={{color:'#eee',fontSize:12, position:"absolute", top:14}}>Яндекс Карты — транспорт,
+                    навигация, поиск мест</a>
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&z=12" width="912"
+                            height="400" frameBorder="1" allowFullScreen="true" style={{position:"relative"}}></iframe>
+                  </div>
+                  <p style={{fontSize: 17,
+                    fontWeight: 600,}}>* поля должны быть обязательно заполнены</p>
+                </Modal>
               </div>
 
             </div>

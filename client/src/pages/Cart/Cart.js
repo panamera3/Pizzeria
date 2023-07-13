@@ -163,7 +163,7 @@ const Cart = () => {
                   <div className="cart-product-info">
                     <img src={product.image} alt="" width="30%" />
                     <div className="cart-product-text">
-                      <p>{product.name}</p>
+                      <p>{product.title}</p>
                       <p className="cart-product-description">
                         Традиционное тесто, 25 см
                       </p>
@@ -171,7 +171,7 @@ const Cart = () => {
                   </div>
                   <div className="cart-horizontal-line" />
                   <div className="cart-product-price">
-                    <p>{product.price * product.amount} Р</p>
+                    <p>{product.cost * product.amount} Р</p>
 
                     <div>
                       <button

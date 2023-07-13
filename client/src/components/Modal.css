@@ -1,4 +1,4 @@
-.modal-overlay {
+.main-modal-overlay {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -9,7 +9,7 @@
   z-index: 1;
 }
 
-.modal {
+.main-modal {
   height: 100%;
   animation-name: modalAppear;
   animation-duration: 0.5s;
@@ -24,13 +24,13 @@
   }
 }
 
-.modal-content {
+.main-modal-content {
   background-color: #ffffff;
   padding: 2em;
   overflow: auto;
 }
 
-.modal-exit {
+.main-modal-exit {
   float: right;
   cursor: pointer;
   position: relative;
