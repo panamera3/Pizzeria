@@ -15,10 +15,12 @@ const PersonalAccount = () => {
   const [user, setUser] = useLocalStorage("user");
   const [userToken, setUserToken] = useLocalStorage("userToken");
 
-  const userPhoneRef = useRef();
-  const userNameInputRef = useRef();
   const userEmailInputRef = useRef();
+  const [userEmail, setUserEmail] = useState("");
+  const userNameInputRef = useRef();
+  const [userName, setUserName] = useState("");
   const userBirthdateInputRef = useRef();
+  const [userBirthdate, setUserBirthdate] = useState("");
 
   const [modalActive, setModalActive] = useState(false);
   const [addressModalActive, setAddressModalActive] = useState(false);
@@ -70,7 +72,7 @@ const PersonalAccount = () => {
     })
       .then((res) => {
         console.log("res.data address", res.data);
-        setBankCard(res.data);
+        setAddresses(res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -84,7 +86,7 @@ const PersonalAccount = () => {
     })
       .then((res) => {
         console.log("res.data card", res.data);
-        setAddresses(res.data);
+        setBankCard(res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -95,6 +97,27 @@ const PersonalAccount = () => {
     console.log("orders", orders);
   }, [orders]);
 
+  useEffect(() => {
+    if (user) {
+      setUserEmail(user.email);
+      setUserName(user.first_name);
+      setUserBirthdate(1);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    console.log("ADDDDDD", addresses);
+  }, [addresses]);
+
+  const formatDate = (datetimeString) => {
+    const date = new Date(datetimeString);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear().toString();
+
+    return `${day}.${month}.${year}`;
+  };
+
   return (
     <>
       <SecondBackground />
@@ -102,29 +125,6 @@ const PersonalAccount = () => {
       <div className={"sections"}>
         <section>
           <h1 style={{ marginTop: 47, marginBottom: 27 }}>ЛИЧНЫЙ КАБИНЕТ</h1>
-
-          <div className={"personal-info-block"}>
-            <p>Телефон</p>
-            <input className={"inputs"} />
-          </div>
-
-          <div className={"personal-info-block"}>
-            <p>Имя</p>
-            <input className={"inputs"} />
-            <svg
-              className={"edit-info"}
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
-                d="M19.2687 6.03603L18.3847 6.92038L13.0807 1.61708L13.9646 0.732656C14.941 -0.243893 16.5245 -0.243893 17.501 0.732656L19.2687 2.50081C20.2438 3.47682 20.2438 5.05957 19.2687 6.03603ZM6.89309 16.642C6.649 16.8861 6.649 17.2814 6.89309 17.5255C7.13731 17.771 7.53285 17.771 7.77694 17.5255L17.501 7.80418L16.616 6.91976L6.89309 16.642ZM2.47311 12.223C2.22889 12.4673 2.22889 12.8625 2.47311 13.1067C2.71721 13.3509 3.11274 13.3509 3.35696 13.1067L13.0807 3.38465L12.1971 2.50081L2.47311 12.223ZM13.9635 4.26784L4.2406 13.9905C3.75237 14.4778 3.7536 15.27 4.2406 15.7582C4.72904 16.2465 5.51994 16.2487 6.00945 15.7569L15.7323 6.03603L13.9635 4.26784ZM6.00694 18.4071C5.70798 18.1078 5.56388 17.7284 5.51025 17.3376C5.38318 17.3572 5.25519 17.3755 5.12445 17.3755C4.45663 17.3755 3.82941 17.1144 3.35696 16.642C2.88451 16.1683 2.62451 15.542 2.62451 14.8742C2.62451 14.7525 2.64277 14.6338 2.65991 14.5155C2.25585 14.4605 1.88237 14.2835 1.58939 13.9905C1.56127 13.9626 1.55159 13.9247 1.52599 13.8941L0 20L6.08995 18.4754C6.06312 18.451 6.03274 18.4327 6.00694 18.4071Z"
-                fill="black"
-              />
-            </svg>
-          </div>
 
           <div className={"personal-info-block"}>
             <p>
@@ -159,7 +159,33 @@ const PersonalAccount = () => {
               </svg>
             </p>
 
-            <input className={"inputs"} />
+            <input
+              className={"inputs"}
+              value={userEmail}
+              ref={userEmailInputRef}
+            />
+            <svg
+              className={"edit-info"}
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M19.2687 6.03603L18.3847 6.92038L13.0807 1.61708L13.9646 0.732656C14.941 -0.243893 16.5245 -0.243893 17.501 0.732656L19.2687 2.50081C20.2438 3.47682 20.2438 5.05957 19.2687 6.03603ZM6.89309 16.642C6.649 16.8861 6.649 17.2814 6.89309 17.5255C7.13731 17.771 7.53285 17.771 7.77694 17.5255L17.501 7.80418L16.616 6.91976L6.89309 16.642ZM2.47311 12.223C2.22889 12.4673 2.22889 12.8625 2.47311 13.1067C2.71721 13.3509 3.11274 13.3509 3.35696 13.1067L13.0807 3.38465L12.1971 2.50081L2.47311 12.223ZM13.9635 4.26784L4.2406 13.9905C3.75237 14.4778 3.7536 15.27 4.2406 15.7582C4.72904 16.2465 5.51994 16.2487 6.00945 15.7569L15.7323 6.03603L13.9635 4.26784ZM6.00694 18.4071C5.70798 18.1078 5.56388 17.7284 5.51025 17.3376C5.38318 17.3572 5.25519 17.3755 5.12445 17.3755C4.45663 17.3755 3.82941 17.1144 3.35696 16.642C2.88451 16.1683 2.62451 15.542 2.62451 14.8742C2.62451 14.7525 2.64277 14.6338 2.65991 14.5155C2.25585 14.4605 1.88237 14.2835 1.58939 13.9905C1.56127 13.9626 1.55159 13.9247 1.52599 13.8941L0 20L6.08995 18.4754C6.06312 18.451 6.03274 18.4327 6.00694 18.4071Z"
+                fill="black"
+              />
+            </svg>
+          </div>
+
+          <div className={"personal-info-block"}>
+            <p>Имя</p>
+            <input
+              className={"inputs"}
+              value={userName}
+              ref={userNameInputRef}
+            />
             <svg
               className={"edit-info"}
               xmlns="http://www.w3.org/2000/svg"
@@ -221,10 +247,16 @@ const PersonalAccount = () => {
         <section>
           <div style={{ marginTop: 75 }} className={"blocks"}>
             История заказов
-            <div className={"order"}>
-              <div>09.07.2023, количество позиций - 3, итого - 4238 Р</div>
-              <div className={"blocks-btn"}>Подробнее</div>
-            </div>
+            {orders.map((order) => (
+              <div className={"order"}>
+                <p>{order.address}</p>
+                <div>
+                  {formatDate(order.created_at)}, количество позиций - 3, итого
+                  - 4238 Р
+                </div>
+                <div className={"blocks-btn"}>Подробнее</div>
+              </div>
+            ))}
             <div>
               <div className={"pages"}>
                 <div className={"switcher"}>&lt;</div>
@@ -236,13 +268,15 @@ const PersonalAccount = () => {
 
           <div className={"blocks"}>
             Адреса доставки
-            <div className={"addresses"}>
-              <div>Мира 32, кв. 1, под. 1, эт. 1</div>
-              <div style={{ display: "flex" }}>
-                <div className={"blocks-btn"}>Изменить</div>
-                <div className={"blocks-btn"}>Удалить</div>
+            {addresses.map((address) => (
+              <div className={"addresses"}>
+                <div>{address.address}</div>
+                <div style={{ display: "flex" }}>
+                  <div className={"blocks-btn"}>Изменить</div>
+                  <div className={"blocks-btn"}>Удалить</div>
+                </div>
               </div>
-            </div>
+            ))}
             <div className={"btns"}>
               <div className={"pages"}>
                 <div className={"switcher"}>&lt;</div>

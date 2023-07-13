@@ -9,6 +9,8 @@ const Order = () => {
   // формат: {productsPrice - сумма заказа, deliveryPrice -цена доставки, totalPrice - итоговая цена}
   const [orderInfo, setOrderInfo] = useLocalStorage("orderInfo");
 
+  // в бд в метод "" передавать количество товаров в заказе, потом используется в ЛК это
+
   return (
     <>
       <SecondBackground />

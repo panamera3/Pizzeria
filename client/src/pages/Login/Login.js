@@ -90,7 +90,7 @@ const Login = () => {
     e.preventDefault();
 
     console.log(32);
-    let resetCode = "ds";
+    let resetCode = "";
 
     // логин
     if (!isRegistration && !isRecovery) {
