@@ -11,11 +11,15 @@ import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
+  const usernameLoginInputRef = useRef();
+  const passwordLoginInputRef = useRef();
+
   const passwordRecoveryInputRef = useRef();
   const emailRecoveryInputRef = useRef();
   const resetCodeRecoveryInputRef = useRef();
 
   const [user, setUser] = useLocalStorage("user");
+  const [userToken, setUserToken] = useLocalStorage("userToken");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,8 +48,7 @@ const Login = () => {
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
-    const re =
-    /^\S+@\S+\.\S+$/;
+    const re = /^\S+@\S+\.\S+$/;
     if (re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Почта введена некорректно");
     } else {
@@ -85,6 +88,51 @@ const Login = () => {
 
     console.log(32);
     let resetCode = "ds";
+
+    // логин
+    if (!isRegistration && !isRecovery) {
+      console.log(
+        usernameLoginInputRef.current.value,
+        passwordLoginInputRef.current.value
+      );
+
+      const formData = new FormData();
+      formData.append("username", usernameLoginInputRef.current.value);
+      formData.append("password", passwordLoginInputRef.current.value);
+
+      axios({
+        method: "post",
+        responseType: "json",
+        url: `http://81.200.145.113:8000/user/login`,
+        data: formData,
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data.access_token);
+          setUserToken(res.data.access_token);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    // регистрация
+    if (isRegistration) {
+      axios({
+        method: "get",
+        url: `http://81.200.145.113:8000/user/address`,
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    // первое окно сброса пароля
     if (isRecovery && !isSentPassword) {
       console.log(1);
       console.log(passwordRecoveryInputRef.current.value);
@@ -97,7 +145,9 @@ const Login = () => {
         .then((code) => (resetCode = code))
         .catch((error) => console.log("Ошибка:\n", error));
       setIsSentPassword(true);
-    } else if (isRecovery && isSentPassword) {
+    }
+    // второе окно сброса пароля
+    if (isRecovery && isSentPassword) {
       console.log(2);
       console.log(resetCode);
       console.log(resetCodeRecoveryInputRef.current.value);
@@ -146,6 +196,7 @@ const Login = () => {
                     id="email__input"
                     type="email"
                     placeholder="absdefgh@mail.com"
+                    ref={usernameLoginInputRef}
                   />
                 </div>
                 <div className="login-input__wrapper">
@@ -164,6 +215,7 @@ const Login = () => {
                     id="password__input"
                     type="password"
                     placeholder="qwerty"
+                    ref={passwordLoginInputRef}
                   />
                 </div>
               </div>
