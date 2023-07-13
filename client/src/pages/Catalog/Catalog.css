@@ -8,6 +8,10 @@
   justify-content: space-around;
 }
 
+.catalog-pizza{
+  max-width: 200px;
+}
+
 .catalog-button {
   background-color: #d31c29;
   color: #ffffff;

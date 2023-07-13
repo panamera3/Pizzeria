@@ -17,40 +17,60 @@ const Catalog = () => {
   const [selectedProductAmount, setSelectedProductAmount] = useState(1);
 
   useEffect(() => {
+    /*
+    axios.get("http://81.200.145.113:8000/product/products").then((res) => {
+      console.log(res.data);
+      setProducts(res.data);
+    });
+    */
+
     setProducts([
       {
         id: 1,
-        name: "Карбонара",
-        structure: "1, 2, 3",
-        price: 420,
+        title: "Карбонара",
+        structure: "Моцарелла, соус томатный, бекон, пармезан, тесто, мука",
+        cost: 420,
         image:
-          "https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg",
+          "https://cdn.dodostatic.net/static/Img/Products/9f54fa5d2d204f5fa70579e2e1982d03_584x584.jpeg",
       },
       {
         id: 2,
-        name: "Сырная",
-        structure: "4, 5, 6",
-        price: 500,
+        title: "Сырная",
+        structure:
+          "Моцарелла, соус сливочный, тесто, мука (для раскатки теста), сыр пармезан зачищенный, сыр Дор Блю, оливковое масло",
+        cost: 440,
         image:
-          "https://irecommend.ru/sites/default/files/product-images/1339976/i4668kkcx1ofAWDK4z0pQ.jpg",
+          "https://cdn.dodostatic.net/static/Img/Products/d9c609f1422247f2b87b6293eb461ff0_584x584.jpeg",
       },
       {
         id: 3,
-        name: "DFFR",
-        structure: "4132er23rf",
-        price: 100,
+        title: "Четыре сезона",
+        structure:
+          "Моцарелла, ветчина, ананас, сервилат, пепперони, курица, пармезан, томаты, шампиньоны, томатный соус, сливочный соус, итальянские травы, зеленый лук, тесто",
+        cost: 495,
         image:
-          "https://www.tokyo-city.ru/images/interesno/Pitctca_-_natcionalnoe_italyanskoe_blyudo.jpg",
+          "https://cdn.dodostatic.net/static/Img/Products/d51fa179760041f0831e63fa21c39402_584x584.jpeg",
       },
       {
         id: 4,
-        name: "Xtndf",
-        structure: "adfsadf",
-        price: 400,
+        title: "Пепперони Фреш",
+        structure:
+          "Тесто, мука, томатный соус, томаты, ветчина, шампиньоны, моцарелла, пармезан, оливковое масло",
+        cost: 605,
         image:
-          "https://irecommend.ru/sites/default/files/product-images/1339976/i4668kkcx1ofAWDK4z0pQ.jpg",
+          "https://cdn.dodostatic.net/static/Img/Products/27c9bbd0af3a4d1d84a086d9c2f1656d_584x584.jpeg",
+      },
+      {
+        id: 5,
+        title: "Ветчина и грибы",
+        structure:
+          "Тесто, мука, томатный соус, томаты, пепперони, моцарелла, пармезан, оливковое масло",
+        cost: 475,
+        image:
+          "https://cdn.dodostatic.net/static/Img/Products/0c24c7c195574d7cae45c889bd8043fc_584x584.jpeg",
       },
     ]);
+
     //setCartProducts([]);
   }, []);
 
@@ -114,6 +134,7 @@ const Catalog = () => {
         <div className="catalog-pizzas">
           {products.map((pizza) => (
             <div
+              className="catalog-pizza"
               key={pizza.id}
               style={{
                 display: "flex",
@@ -122,10 +143,20 @@ const Catalog = () => {
               }}
             >
               <img src={pizza.image} alt="Пицца" width="200em" />
-              <h3 style={{paddingLeft: "0", marginLeft: "0", marginTop: "1em"}}>{pizza.name}</h3>
+              <h3
+                style={{ paddingLeft: "0", marginLeft: "0", marginTop: "1em" }}
+              >
+                {pizza.title}
+              </h3>
               <p style={{ margin: "1em 0" }}>{pizza.structure}</p>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <h4>{pizza.price} р.</h4>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <h4>{pizza.cost} р.</h4>
                 <button
                   onClick={() => openModalCard(pizza)}
                   style={{
@@ -159,12 +190,8 @@ const Catalog = () => {
             alignItems: "center",
           }}
         >
-          <h2 style={{ marginBottom: "1em" }}>{selectedProduct.name}</h2>
-          <img
-            src={selectedProduct.image}
-            alt=""
-            width="100%"
-          />
+          <h2 style={{ marginBottom: "1em" }}>{selectedProduct.title}</h2>
+          <img src={selectedProduct.image} alt="" width="100%" />
           <p style={{ margin: "1em 0" }}>{selectedProduct.structure}</p>
           <div
             style={{
@@ -178,7 +205,7 @@ const Catalog = () => {
               onClick={() => addOrder(selectedProduct)}
             >
               Добавить в корзину за{" "}
-              {selectedProduct.price * selectedProductAmount} рублей
+              {selectedProduct.cost * selectedProductAmount} рублей
             </button>
             <div>
               <button
