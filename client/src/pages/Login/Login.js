@@ -196,7 +196,7 @@ const Login = () => {
                 </div>
                 <div className="login-input__wrapper">
                   <label className="login__label" for="password__input">
-                    Пароль:
+                    Придумайте пароль:
                   </label>
                   {passwordDirty && passwordError && (
                     <div style={{ color: "red" }}>{passwordError}</div>
