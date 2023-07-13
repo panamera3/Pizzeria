@@ -19,6 +19,19 @@ main {
   border: 1px solid #ccc;
   background: rgba(221, 221, 221, 0.3);
 }
+
+.adressNCard{
+  display: flex;
+  flex-direction: row;
+}
+
+.card{
+  width: 626px;
+height: 368px;
+left: 900px;
+top: 900px;
+z-index: 0;
+}
 .personalInfo {
   display: flex;
   width: 1240px;
