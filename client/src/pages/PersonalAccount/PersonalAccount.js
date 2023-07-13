@@ -118,6 +118,19 @@ const PersonalAccount = () => {
     return `${day}.${month}.${year}`;
   };
 
+  const cardEncryption = (cardNumber) => {
+    var firstEightDigits = cardNumber.slice(0, cardNumber.length - 4); // Получить первые 8 символов
+    var transformedString = "";
+
+    for (var i = 0; i < firstEightDigits.length; i++) {
+      if (i % (cardNumber.length / 4) === 0 && i !== 0) {
+        transformedString += " ";
+      }
+      transformedString += "*";
+    }
+    return `${transformedString} ${cardNumber.slice(-4)}`;
+  };
+
   return (
     <>
       <SecondBackground />
@@ -252,7 +265,7 @@ const PersonalAccount = () => {
                 <p>{order.address}</p>
                 <div>
                   {formatDate(order.created_at)}, количество позиций - 3, итого
-                  - 4238 Р
+                  - {order.cost} Р
                 </div>
                 <div className={"blocks-btn"}>Подробнее</div>
               </div>
@@ -373,13 +386,17 @@ const PersonalAccount = () => {
 
           <div className={"blocks"}>
             Способы оплаты
-            <div className={"creditCards"}>
-              <div>Банковская карта, номер **** **** **** 0612</div>
-              <div style={{ display: "flex" }}>
-                <div className={"blocks-btn"}>Изменить</div>
-                <div className={"blocks-btn"}>Удалить</div>
+            {bankCard.map((card) => (
+              <div className={"creditCards"}>
+                <div>
+                  Банковская карта, номер {cardEncryption(card.card_number)}
+                </div>
+                <div style={{ display: "flex" }}>
+                  <div className={"blocks-btn"}>Изменить</div>
+                  <div className={"blocks-btn"}>Удалить</div>
+                </div>
               </div>
-            </div>
+            ))}
             <div className={"btns"}>
               <div className={"pages"}>
                 <div className={"switcher"}>&lt;</div>
