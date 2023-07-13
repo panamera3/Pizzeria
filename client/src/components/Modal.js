@@ -10,10 +10,10 @@ const Modal = ({ isOpen, onClose, children, width, stylePosition, height }) => {
 
   return (
     <>
-      <div className="modal-overlay">
-        <div className="modal" style={stylePosition}>
+      <div className="main-modal-overlay">
+        <div className="main-modal" style={stylePosition}>
           <div
-            className="modal-content"
+            className="main-modal-content"
             style={{ width: `${width}`, height: `${height}` }}
           >
             <div
@@ -24,7 +24,7 @@ const Modal = ({ isOpen, onClose, children, width, stylePosition, height }) => {
               }}
             >
               <img
-                className="modal-exit"
+                className="main-modal-exit"
                 src={Exit}
                 alt="Кнопка выхода"
                 onClick={onClose}
