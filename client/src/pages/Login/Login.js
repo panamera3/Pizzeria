@@ -176,8 +176,47 @@ const Login = () => {
                 <h2 className="login__title">Регистрация</h2>
               </div>
               <div className="login-input">
-                <p>example1</p>
-                {/* поменять на логику регистрации пользователя*/}
+              <div className="login-title__wrapper">
+                <h2 className="login__title">Вход</h2>
+              </div>
+              <div className="login-input">
+                <div className="login-input__wrapper">
+                  <label className="login__label" for="email__input">
+                    Почта:
+                  </label>
+                  {emailDirty && emailError && (
+                    <div style={{ color: "red" }}>{emailError}</div>
+                  )}
+                  <input
+                    onChange={(e) => emailHandler(e)}
+                    value={email}
+                    onBlur={(e) => blurHandler(e)}
+                    name="email"
+                    className="login__input"
+                    id="email__input"
+                    type="email"
+                    placeholder="absdefgh@mail.com"
+                  />
+                </div>
+                <div className="login-input__wrapper">
+                  <label className="login__label" for="password__input">
+                    Пароль:
+                  </label>
+                  {passwordDirty && passwordError && (
+                    <div style={{ color: "red" }}>{passwordError}</div>
+                  )}
+                  <input
+                    onChange={(e) => passwordHandler(e)}
+                    value={password}
+                    onBlur={(e) => blurHandler(e)}
+                    name="password"
+                    className="login__input"
+                    id="password__input"
+                    type="password"
+                    placeholder="qwerty"
+                  />
+                </div>
+              </div>
               </div>
             </>
           )}
