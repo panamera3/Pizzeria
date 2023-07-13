@@ -64,11 +64,13 @@ const Cart = () => {
   const applyPromocode = () => {};
 
   const decreaseAmount = (product) => {
-    const updatedProducts = products.map((item) =>
-      item.id === product.id ? { ...item, amount: product.amount - 1 } : item
-    );
-    setProducts(updatedProducts);
-    setCartProducts(updatedProducts);
+    if (product.amount - 1 > 0) {
+      const updatedProducts = products.map((item) =>
+        item.id === product.id ? { ...item, amount: product.amount - 1 } : item
+      );
+      setProducts(updatedProducts);
+      setCartProducts(updatedProducts);
+    }
   };
 
   const increaseAmount = (product) => {
