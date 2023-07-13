@@ -86,7 +86,7 @@ const Login = () => {
   };
 
   const onCloseLogin = () => {
-    navigate(`${process.env.PUBLIC_URL}/#/`);
+    navigate(`/`);
   };
 
   const submitHandler = (e) => {
@@ -203,7 +203,7 @@ const Login = () => {
       console.log(resetCodeRecoveryInputRef.current.value);
       const userResetCode = resetCodeRecoveryInputRef.current.value;
       if (resetCode === userResetCode) {
-        navigate(`${process.env.PUBLIC_URL}/#/personal-account`);
+        navigate(`/personal-account`);
       }
     }
   };

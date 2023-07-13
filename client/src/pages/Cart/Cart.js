@@ -58,7 +58,7 @@ const Cart = () => {
   }, [productsPrice, deliveryPrice, discountPrice]);
 
   const onCloseCart = () => {
-    navigate(`${process.env.PUBLIC_URL}/#/`);
+    navigate(`/`);
   };
 
   const applyPromocode = () => {};
