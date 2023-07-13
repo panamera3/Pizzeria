@@ -37,7 +37,7 @@ const Cart = () => {
     );
     setProductsPrice(
       products.reduce(
-        (total, product) => total + product.price * product.amount,
+        (total, product) => total + product.cost * product.amount,
         0
       )
     );
@@ -99,7 +99,7 @@ const Cart = () => {
       deliveryPrice: deliveryPrice,
       totalPrice: totalPrice,
     });
-    navigate(`${process.env.PUBLIC_URL}/#/order`);
+    navigate(`/order`);
   };
 
   return (

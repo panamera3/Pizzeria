@@ -150,8 +150,6 @@ const Login = () => {
         .then((res) => {
           // вернётся сам пользователь, без токена, пользователя надо залогировать, чтобы получить токен
           if (res.data) {
-            */
-            /*
             const formDataReg = new FormData();
       formDataReg.append("username", userNameRegistrationInputRef.current.value);
       formDataReg.append("password", passwordRegistrationInputRef.current.value);
@@ -172,12 +170,9 @@ const Login = () => {
               .catch((error) => {
                 console.error(error);
               });
-              */
-            /*
             setUserToken(res.data.access_token);
             // перевод на лк
             navigate(`/personal-account`);
-            */
            /*
           }
         })
