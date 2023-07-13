@@ -131,6 +131,12 @@ const PersonalAccount = () => {
     return `${transformedString} ${cardNumber.slice(-4)}`;
   };
 
+  const exitAccount = () => {
+    setUser({});
+    setUserToken("");
+    navigate("/");
+  };
+
   return (
     <>
       <SecondBackground />
@@ -254,7 +260,9 @@ const PersonalAccount = () => {
             SMS-рассылки для участия в акциях и розыгрышах.
           </div>
 
-          <div className={"exit-from-acc-btn"}>Выйти из аккаунта</div>
+          <div className={"exit-from-acc-btn"} onClick={exitAccount}>
+            Выйти из аккаунта
+          </div>
         </section>
 
         <section>
