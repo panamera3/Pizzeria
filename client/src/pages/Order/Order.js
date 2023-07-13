@@ -13,10 +13,10 @@ const Order = () => {
     <>
       <SecondBackground />
       <main>
-        <h1 classNameName="title">ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+        <h1 className="title">ОФОРМЛЕНИЕ ЗАКАЗА</h1>
         <h3>ЛИЧНЫЕ ДАННЫЕ</h3>
-        <div classNameName="personalInfo">
-          <div classNameName="name">
+        <div className="personalInfo">
+          <div className="name">
             <p>Имя</p>
             <input type="text" placeholder="Иван" />
           </div>
@@ -33,20 +33,20 @@ const Order = () => {
         </div>
 
         <h3>АДРЕС И ВРЕМЯ ДОСТАВКИ</h3>
-        <div classNameName="adressNTime">
-          <div classNameName="delivery">
+        <div className="adressNTime">
+          <div className="delivery">
             <button>Доставка</button>
             <button>Самовывоз</button>
           </div>
-          <div classNameName="btn-adress">
-            <button classNameName="buttonNewAdress">Новый адрес</button>
-            <button classNameName="savedAdress">Сохранённый адрес</button>
+          <div className="btn-adress">
+            <button className="buttonNewAdress">Новый адрес</button>
+            <button className="savedAdress">Сохранённый адрес</button>
           </div>
-          <div classNameName="adress">
+          <div className="adress">
             <p>Адрес*:</p>
             <input placeholder="Адрес" required />
           </div>
-          <div classNameName="nearAdress">
+          <div className="nearAdress">
             <div>
               <p>Квартира/Офис*:</p>
               <input placeholder="Квартира/Офис" required />
@@ -65,7 +65,7 @@ const Order = () => {
             </div>
           </div>
 
-          <div classNameName="time">
+          <div className="time">
             <p>Сегодня к:</p>
             <select>
               <option>08:00</option>
