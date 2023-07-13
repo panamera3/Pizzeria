@@ -31,6 +31,7 @@ const PersonalAccount = () => {
 
   useEffect(() => {
     console.log(userToken);
+    console.log(user);
     // если пользователь не входил ранее, перенаправлять его на страницу входа
     if (!userToken) {
       navigate(`/login`);
@@ -43,11 +44,11 @@ const PersonalAccount = () => {
       headers: { Authorization: `Bearer ${userToken}` },
     })
       .then((res) => {
-        console.log("res.data current", res.data);
+        //console.log("res.data current", res.data);
         setUser(res.data);
       })
       .catch((error) => {
-        console.error(error);
+        //console.error(error);
       });
 
     // все заказы
@@ -57,7 +58,7 @@ const PersonalAccount = () => {
       headers: { Authorization: `Bearer ${userToken}` },
     })
       .then((res) => {
-        console.log("res.data", res.data);
+        //console.log("res.data", res.data);
         setOrders(res.data);
       })
       .catch((error) => {
@@ -71,7 +72,7 @@ const PersonalAccount = () => {
       headers: { Authorization: `Bearer ${userToken}` },
     })
       .then((res) => {
-        console.log("res.data address", res.data);
+        //console.log("res.data address", res.data);
         setAddresses(res.data);
       })
       .catch((error) => {
@@ -85,7 +86,7 @@ const PersonalAccount = () => {
       headers: { Authorization: `Bearer ${userToken}` },
     })
       .then((res) => {
-        console.log("res.data card", res.data);
+        //console.log("res.data card", res.data);
         setBankCard(res.data);
       })
       .catch((error) => {
@@ -94,7 +95,7 @@ const PersonalAccount = () => {
   }, []);
 
   useEffect(() => {
-    console.log("orders", orders);
+    //console.log("orders", orders);
   }, [orders]);
 
   useEffect(() => {
@@ -106,7 +107,7 @@ const PersonalAccount = () => {
   }, [user]);
 
   useEffect(() => {
-    console.log("ADDDDDD", addresses);
+    //console.log("ADDDDDD", addresses);
   }, [addresses]);
 
   const formatDate = (datetimeString) => {
@@ -135,6 +136,44 @@ const PersonalAccount = () => {
     setUser({});
     setUserToken("");
     navigate("/");
+  };
+
+  const addressDeleteHandler = (addressId) => {
+    axios({
+      method: "delete",
+      url: `http://81.200.145.113:8000/user/address?id_address=${addressId}`,
+      headers: { Authorization: `Bearer ${userToken}` },
+    })
+      .then((res) => {
+        console.log("res.data deleteAddress", res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const addAddressHandler = () => {
+    /*
+    axios({
+      method: "post",
+      url: `http://81.200.145.113:8000/user/address`,
+      headers: { Authorization: `Bearer ${userToken}` },
+      data: {
+        address: `${1}`, // из формы
+        apartment_number: 1, // из формы
+        doorphone: `${1}`, // из формы
+        entrance: `${1}`, // из формы
+        floor: `${1}`, // из формы
+        id_user: user.id,
+      },
+    })
+      .then((res) => {
+        console.log("res.data addAddress", res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      */
   };
 
   return (
@@ -252,7 +291,11 @@ const PersonalAccount = () => {
                 </defs>
               </svg>
             </p>
-            <input className={"inputs"} value={userBirthdate} ref={userBirthdateInputRef} />
+            <input
+              className={"inputs"}
+              value={userBirthdate}
+              ref={userBirthdateInputRef}
+            />
           </div>
 
           <div className={"exit-from-acc-btn"} onClick={exitAccount}>
@@ -265,10 +308,9 @@ const PersonalAccount = () => {
             История заказов
             {orders.map((order) => (
               <div className={"order"}>
-                <p>{order.address}</p>
                 <div>
-                  {formatDate(order.created_at)}, количество позиций - 3, итого
-                  - {order.cost} Р
+                  {formatDate(order.created_at)}
+                  {/*, количество позиций - 3*/}, итого - {order.cost} Р
                 </div>
                 <div className={"blocks-btn"}>Подробнее</div>
               </div>
@@ -289,7 +331,12 @@ const PersonalAccount = () => {
                 <div>{address.address}</div>
                 <div style={{ display: "flex" }}>
                   <div className={"blocks-btn"}>Изменить</div>
-                  <div className={"blocks-btn"}>Удалить</div>
+                  <div
+                    className={"blocks-btn"}
+                    onClick={() => addressDeleteHandler(address.id)}
+                  >
+                    Удалить
+                  </div>
                 </div>
               </div>
             ))}
@@ -345,7 +392,12 @@ const PersonalAccount = () => {
                     >
                       Вернуться в личный кабинет
                     </div>
-                    <div className={"add-address-btn"}>Добавить адрес</div>
+                    <div
+                      className={"add-address-btn"}
+                      onClick={addAddressHandler}
+                    >
+                      Добавить адрес
+                    </div>
                   </section>
                 </div>
                 <div style={{ position: "relative", overflow: "hidden" }}>

@@ -42,7 +42,7 @@ const Login = () => {
   useEffect(() => {
     // если пользователь входил ранее, перенаправлять его в ЛК
     if (userToken) {
-      //navigate(`/personal-account`);
+      navigate(`/personal-account`);
     }
     if (emailError || passwordError) {
       setFormValid(false);
@@ -130,7 +130,6 @@ const Login = () => {
       formData.append("username", usernameRegistrationInputRef.current.value);
       formData.append("password", passwordRegistrationInputRef.current.value);
 
-      /*
       axios({
         method: "post",
         responseType: "json",
@@ -147,13 +146,21 @@ const Login = () => {
           surname: "",
         },
       })
-        .then((res) => {
+        .then((result) => {
+          console.log("AAA", result.data);
           // вернётся сам пользователь, без токена, пользователя надо залогировать, чтобы получить токен
-          if (res.data) {
+          if (result.data) {
             const formDataReg = new FormData();
-      formDataReg.append("username", userNameRegistrationInputRef.current.value);
-      formDataReg.append("password", passwordRegistrationInputRef.current.value);
+            formDataReg.append(
+              "username",
+              usernameRegistrationInputRef.current.value
+            );
+            formDataReg.append(
+              "password",
+              passwordRegistrationInputRef.current.value
+            );
 
+            // логирование пользователя
             axios({
               method: "post",
               responseType: "json",
@@ -161,7 +168,9 @@ const Login = () => {
               data: formDataReg,
             })
               .then((res) => {
+                console.log("AAAA", res.data);
                 if (res.data.access_token) {
+                  setUser(result.data);
                   setUserToken(res.data.access_token);
                   // перевод на лк
                   navigate(`/personal-account`);
@@ -170,16 +179,11 @@ const Login = () => {
               .catch((error) => {
                 console.error(error);
               });
-            setUserToken(res.data.access_token);
-            // перевод на лк
-            navigate(`/personal-account`);
-           /*
           }
         })
         .catch((error) => {
           console.error(error);
         });
-        */
     }
 
     // первое окно сброса пароля
