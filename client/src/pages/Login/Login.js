@@ -11,6 +11,7 @@ import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
+
   const usernameLoginInputRef = useRef();
   const passwordLoginInputRef = useRef();
 
@@ -36,8 +37,9 @@ const Login = () => {
   const [isSentPassword, setIsSentPassword] = useState(false);
 
   useEffect(() => {
-    if (user.id) {
-      navigate(`${process.env.PUBLIC_URL}/#/personal-account`);
+    // если пользователь входил ранее, перенаправлять его в ЛК
+    if (userToken) {
+      //navigate(`/personal-account`);
     }
     if (emailError || passwordError) {
       setFormValid(false);
@@ -48,7 +50,8 @@ const Login = () => {
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
-    const re = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ;
+    const re =
+      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Почта введена некорректно");
     } else {
@@ -107,9 +110,11 @@ const Login = () => {
         data: formData,
       })
         .then((res) => {
-          console.log(res);
-          console.log(res.data.access_token);
-          setUserToken(res.data.access_token);
+          if (res.data.access_token) {
+            setUserToken(res.data.access_token);
+            // перевод на лк
+            navigate(`/personal-account`);
+          }
         })
         .catch((error) => {
           console.error(error);
@@ -118,18 +123,6 @@ const Login = () => {
 
     // регистрация
     if (isRegistration) {
-      axios({
-        method: "get",
-        url: `http://81.200.145.113:8000/user/address`,
-        headers: { Authorization: `Bearer ${userToken}` },
-      })
-        .then((res) => {
-          console.log(res);
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
     }
 
     // первое окно сброса пароля
