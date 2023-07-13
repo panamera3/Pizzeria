@@ -45,7 +45,7 @@ const Login = () => {
   const emailHandler = (e) => {
     setEmail(e.target.value);
     const re =
-      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+    /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
     if (re.test(String(e.target.value).toLowerCase())) {
       //setEmailError("Почта введена некорректно");
     } else {
