@@ -15,6 +15,9 @@ const Login = () => {
   const usernameLoginInputRef = useRef();
   const passwordLoginInputRef = useRef();
 
+  const usernameRegistrationInputRef = useRef();
+  const passwordRegistrationInputRef = useRef();
+
   const passwordRecoveryInputRef = useRef();
   const emailRecoveryInputRef = useRef();
   const resetCodeRecoveryInputRef = useRef();
@@ -123,6 +126,65 @@ const Login = () => {
 
     // регистрация
     if (isRegistration) {
+      const formData = new FormData();
+      formData.append("username", usernameRegistrationInputRef.current.value);
+      formData.append("password", passwordRegistrationInputRef.current.value);
+
+      /*
+      axios({
+        method: "post",
+        responseType: "json",
+        url: `http://81.200.145.113:8000/user/signup`,
+        data: {
+          email: `${usernameRegistrationInputRef.current.value}`,
+          password: `${passwordRegistrationInputRef.current.value}`,
+          birth_date: "",
+          bonus: 0,
+          first_name: "",
+          middle_surname: "",
+          phone: "",
+          role: "",
+          surname: "",
+        },
+      })
+        .then((res) => {
+          // вернётся сам пользователь, без токена, пользователя надо залогировать, чтобы получить токен
+          if (res.data) {
+            */
+            /*
+            const formDataReg = new FormData();
+      formDataReg.append("username", userNameRegistrationInputRef.current.value);
+      formDataReg.append("password", passwordRegistrationInputRef.current.value);
+
+            axios({
+              method: "post",
+              responseType: "json",
+              url: `http://81.200.145.113:8000/user/login`,
+              data: formDataReg,
+            })
+              .then((res) => {
+                if (res.data.access_token) {
+                  setUserToken(res.data.access_token);
+                  // перевод на лк
+                  navigate(`/personal-account`);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+              */
+            /*
+            setUserToken(res.data.access_token);
+            // перевод на лк
+            navigate(`/personal-account`);
+            */
+           /*
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+        */
     }
 
     // первое окно сброса пароля
@@ -237,6 +299,7 @@ const Login = () => {
                     id="email__input"
                     type="email"
                     placeholder="absdefgh@mail.com"
+                    ref={usernameRegistrationInputRef}
                   />
                 </div>
                 <div className="login-input__wrapper">
@@ -255,6 +318,7 @@ const Login = () => {
                     id="password__input"
                     type="password"
                     placeholder="qwerty"
+                    ref={passwordRegistrationInputRef}
                   />
                 </div>
               </div>

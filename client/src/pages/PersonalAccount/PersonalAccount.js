@@ -101,7 +101,7 @@ const PersonalAccount = () => {
     if (user) {
       setUserEmail(user.email);
       setUserName(user.first_name);
-      setUserBirthdate(1);
+      setUserBirthdate(user.birth_date);
     }
   }, [user]);
 
@@ -252,12 +252,7 @@ const PersonalAccount = () => {
                 </defs>
               </svg>
             </p>
-            <input className={"inputs"} />
-          </div>
-
-          <div style={{ marginBottom: 29 }}>
-            <input className={"check-box"} type={"checkbox"} />Я хочу получать
-            SMS-рассылки для участия в акциях и розыгрышах.
+            <input className={"inputs"} value={userBirthdate} ref={userBirthdateInputRef} />
           </div>
 
           <div className={"exit-from-acc-btn"} onClick={exitAccount}>
